@@ -4,10 +4,10 @@ using System.Text;
 
 namespace ToDo.Library
 {
-    public class ToDoMediator<T>
+    public class ToDoMediator
     {
-        public event EventHandler<ToDoQuery<T>> Queries;
-        public void PerformQuery(object sender, ToDoQuery<T> query) 
+        public event EventHandler<ToDoQuery> Queries;
+        public void PerformQuery(object sender, ToDoQuery query)
         {
             Queries?.Invoke(sender, query);
         }
