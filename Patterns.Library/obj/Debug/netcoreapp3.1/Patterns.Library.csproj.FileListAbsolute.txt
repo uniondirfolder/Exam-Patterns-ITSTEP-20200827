@@ -1,0 +1,4 @@
+E:\(_Work-Git_)\Exam-Patterns-ITSTEP-20200827\Patterns.Library\obj\Debug\netcoreapp3.1\Patterns.Library.csprojAssemblyReference.cache
+E:\(_Work-Git_)\Exam-Patterns-ITSTEP-20200827\Patterns.Library\obj\Debug\netcoreapp3.1\Patterns.Library.AssemblyInfoInputs.cache
+E:\(_Work-Git_)\Exam-Patterns-ITSTEP-20200827\Patterns.Library\obj\Debug\netcoreapp3.1\Patterns.Library.AssemblyInfo.cs
+E:\(_Work-Git_)\Exam-Patterns-ITSTEP-20200827\Patterns.Library\obj\Debug\netcoreapp3.1\Patterns.Library.csproj.CoreCompileInputs.cache
