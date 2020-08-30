@@ -20,6 +20,10 @@ namespace SimplestPlanningSystem.Model
     {
         Low, Normal, High, Middle
     }
+    public enum SearchBy 
+    {
+        Status, Priority, Tag, Info, Date
+    }
 
     [Serializable]
     public class SPSTask
@@ -33,11 +37,23 @@ namespace SimplestPlanningSystem.Model
         public Tag TagTask { get; set; } = Tag.Personal;
         public string InfoAboutTask { get; set; } = "nothing";
         public DateTime DateTimeStartTask { get; set; } = DateTime.UtcNow;
-        public DateTime DateTimeEndTask { get; set; } = DateTime.UtcNow;
+        public DateTime DateTimeEndTask { get; set; } 
 
-        public SPSTask()
+        public SPSTask(
+            Status status,
+            Priority PriorityTask,
+            Tag TagTask,
+            string InfoAboutTask,
+            DateTime DateTimeStartTask,
+            DateTime DateTimeEndTask
+            )
         {
-
+            if (DateTimeStartTask < DateTimeEndTask)
+                throw new Exception($"DateTimeEndTask more then DateTimeStartTask");
+            _status = status;
+            this.PriorityTask = PriorityTask;
+            this.TagTask = TagTask;
+            this.InfoAboutTask = InfoAboutTask ?? throw new ArgumentNullException(paramName: nameof(InfoAboutTask));
         }
 
         
