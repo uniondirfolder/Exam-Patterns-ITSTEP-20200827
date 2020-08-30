@@ -13,9 +13,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\(_Work-Git_)\\Exam-Patterns-ITSTEP-20200827\\Patterns.Library\\Patterns.Library.csproj",
-      "projectName": "Patterns.Library",
-      "projectPath": "E:\\(_Work-Git_)\\Exam-Patterns-ITSTEP-20200827\\Patterns.Library\\Patterns.Library.csproj",
+      "projectUniqueName": "E:\\(_Work-Git_)\\Exam-Patterns-ITSTEP-20200827\\Patterns.Library\\ToDo.Library.csproj",
+      "projectName": "ToDo.Library",
+      "projectPath": "E:\\(_Work-Git_)\\Exam-Patterns-ITSTEP-20200827\\Patterns.Library\\ToDo.Library.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
       "outputPath": "E:\\(_Work-Git_)\\Exam-Patterns-ITSTEP-20200827\\Patterns.Library\\obj\\",
       "projectStyle": "PackageReference",
