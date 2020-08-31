@@ -1,5 +1,6 @@
 ﻿using SimplestPlanningSystem.Controller;
 using SimplestPlanningSystem.Model;
+using SimplestPlanningSystem.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,13 +9,18 @@ using System.Threading.Tasks;
 
 namespace SimplestPlanningSystem.View
 {  
-    public class SPSView : ISPSFacade
+    public class SPSView : SPSmvc, ISPSFacade
     {
         private SPSFacade controller;
-        public SPSView(SPSFacade controller)
+        public SPSView(SPSFacade controller,ISPSMediator dispatcher):base(dispatcher)
         {
             this.controller = controller ?? throw new ArgumentNullException(paramName: nameof(controller));
         }
+
+        public SPSView(ISPSMediator dispatcher) : base(dispatcher)
+        {
+        }
+
         public void Change(SPSTask task, Guid id)
         {
             controller.Change(task, id);
@@ -48,6 +54,11 @@ namespace SimplestPlanningSystem.View
         public void Update(List<string> whom)
         {
             controller.Update(whom);
+        }
+
+        public override void Activity(SPSServiceCode code)
+        {
+            throw new NotImplementedException();
         }
     }
 }

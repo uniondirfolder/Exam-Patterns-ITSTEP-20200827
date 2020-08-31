@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.textView = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnCreateNewList = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -50,15 +50,14 @@
             this.textView.Size = new System.Drawing.Size(386, 426);
             this.textView.TabIndex = 0;
             // 
-            // button1
+            // btnCreateNewList
             // 
-            this.button1.Location = new System.Drawing.Point(440, 44);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(142, 28);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Create New List";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnCreateNewList.Location = new System.Drawing.Point(440, 44);
+            this.btnCreateNewList.Name = "btnCreateNewList";
+            this.btnCreateNewList.Size = new System.Drawing.Size(142, 28);
+            this.btnCreateNewList.TabIndex = 1;
+            this.btnCreateNewList.Text = "Create New List";
+            this.btnCreateNewList.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
@@ -155,10 +154,11 @@
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnCreateNewList);
             this.Controls.Add(this.textView);
             this.Name = "Main";
             this.Text = "Simple Planning System - test model";
+            this.Load += new System.EventHandler(this.Main_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -167,7 +167,7 @@
         #endregion
 
         private System.Windows.Forms.TextBox textView;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCreateNewList;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;

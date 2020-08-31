@@ -1,4 +1,5 @@
 ﻿using SimplestPlanningSystem.Model;
+using SimplestPlanningSystem.Service;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -13,7 +14,7 @@ using static SimplestPlanningSystem.Model.SPSCommand;
 namespace SimplestPlanningSystem.Controller
 {
 
-    public class SPSFacade : ISPSFacade, ISPSObserver
+    public class SPSFacade : SPSmvc, ISPSFacade, ISPSObserver 
     {
         private SPSFile db;
 
@@ -51,11 +52,16 @@ namespace SimplestPlanningSystem.Controller
         }
         public void Update(List<string> whom)
         {
-            var ent = whom ?? throw new ArgumentNullException(paramName: nameof(whom));
+            List<string> ent = whom ?? throw new ArgumentNullException(paramName: nameof(whom));
             ent = db.Context.SPSTasksToListOfStrings();
         }
 
-        public SPSFacade(string pathfile = "test.sps")
+        public override void Activity(SPSServiceCode code)
+        {
+            throw new NotImplementedException();
+        }
+
+        public SPSFacade(ISPSMediator dispatcher, string pathfile = "test.sps"):base(dispatcher)
         {
             string str = pathfile ?? throw new ArgumentNullException(paramName: nameof(pathfile));
             db = new SPSFile(str);

@@ -46,19 +46,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddChange.cs">
+    <Compile Include="Service\SPSDispatcher.cs" />
+    <Compile Include="Service\SPSMediator.cs" />
+    <Compile Include="UserInterface\AddChange.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddChange.Designer.cs">
+    <Compile Include="UserInterface\AddChange.Designer.cs">
       <DependentUpon>AddChange.cs</DependentUpon>
     </Compile>
     <Compile Include="Controller\ISPSFacade.cs" />
     <Compile Include="Controller\ISPSObserver.cs" />
     <Compile Include="Controller\SPSFacade.cs" />
-    <Compile Include="Main.cs">
+    <Compile Include="UserInterface\Main.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main.Designer.cs">
+    <Compile Include="UserInterface\Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\FileFactoryMethod.cs" />
@@ -69,7 +71,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\SPSView.cs" />
-    <EmbeddedResource Include="Main.resx">
+    <EmbeddedResource Include="UserInterface\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
