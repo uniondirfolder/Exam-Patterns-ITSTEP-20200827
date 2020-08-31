@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SimplestPlanningSystem.Model.FileFactoryMethod">
+    <Position X="10" Y="3" Width="2.75" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="SimplestPlanningSystem.Model.FileFactoryMethod.FileAbstractFactory">
+        <TypeIdentifier>
+          <NewMemberFileName>Model\FileFactoryMethod.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="SimplestPlanningSystem.Model.FileFactoryMethod.SPSFileFactory">
+        <TypeIdentifier>
+          <NewMemberFileName>Model\FileFactoryMethod.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="SimplestPlanningSystem.Model.FileFactoryMethod.SPSFile">
+        <TypeIdentifier>
+          <NewMemberFileName>Model\FileFactoryMethod.cs</NewMemberFileName>
+        </TypeIdentifier>
+        <Lollipop Position="0.2" />
+      </Class>
+      <Class Name="SimplestPlanningSystem.Model.FileFactoryMethod.FileFactory">
+        <TypeIdentifier>
+          <NewMemberFileName>Model\FileFactoryMethod.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\FileFactoryMethod.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SimplestPlanningSystem.Model.ListExtensionMethods">
+    <Position X="5" Y="1.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Model\ListExtensionMethods.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SimplestPlanningSystem.Model.SPSCommand">
+    <Position X="0.5" Y="3.25" Width="2.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Interface Name="SimplestPlanningSystem.Model.SPSCommand.Icommand">
+        <TypeIdentifier>
+          <NewMemberFileName>Model\SPSCommand.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Interface>
+      <Class Name="SimplestPlanningSystem.Model.SPSCommand.CreateSPSdb">
+        <TypeIdentifier>
+          <NewMemberFileName>Model\SPSCommand.cs</NewMemberFileName>
+        </TypeIdentifier>
+        <Lollipop Position="0.2" />
+      </Class>
+      <Class Name="SimplestPlanningSystem.Model.SPSCommand.CreateSPSTask">
+        <TypeIdentifier>
+          <NewMemberFileName>Model\SPSCommand.cs</NewMemberFileName>
+        </TypeIdentifier>
+        <Lollipop Position="0.2" />
+      </Class>
+      <Class Name="SimplestPlanningSystem.Model.SPSCommand.ChangeSPSTask">
+        <TypeIdentifier>
+          <NewMemberFileName>Model\SPSCommand.cs</NewMemberFileName>
+        </TypeIdentifier>
+        <Lollipop Position="0.2" />
+      </Class>
+      <Class Name="SimplestPlanningSystem.Model.SPSCommand.DeleteSPSTask">
+        <TypeIdentifier>
+          <NewMemberFileName>Model\SPSCommand.cs</NewMemberFileName>
+        </TypeIdentifier>
+        <Lollipop Position="0.2" />
+      </Class>
+      <Class Name="SimplestPlanningSystem.Model.SPSCommand.ChangeSPSTaskPriority">
+        <TypeIdentifier>
+          <NewMemberFileName>Model\SPSCommand.cs</NewMemberFileName>
+        </TypeIdentifier>
+        <Lollipop Position="0.2" />
+      </Class>
+      <Class Name="SimplestPlanningSystem.Model.SPSCommand.ChangeSPSTaskDueDate">
+        <TypeIdentifier>
+          <NewMemberFileName>Model\SPSCommand.cs</NewMemberFileName>
+        </TypeIdentifier>
+        <Lollipop Position="0.2" />
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\SPSCommand.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SimplestPlanningSystem.Model.SPSStrategySearch">
+    <Position X="5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>Model\SPSStrategy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SimplestPlanningSystem.Model.SPSSearchByDateStart">
+    <Position X="9.75" Y="0.5" Width="2" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>Model\SPSStrategy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SimplestPlanningSystem.Model.SPSSearchByTag">
+    <Position X="13.75" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>Model\SPSStrategy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SimplestPlanningSystem.Model.SPSSearchByPriority">
+    <Position X="15.5" Y="0.5" Width="2" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>Model\SPSStrategy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SimplestPlanningSystem.Model.SPSSearchByStatus">
+    <Position X="7.5" Y="0.5" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>Model\SPSStrategy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SimplestPlanningSystem.Model.SPSSearchByInfo">
+    <Position X="12" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>Model\SPSStrategy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SimplestPlanningSystem.Model.SPSStrategyChange">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\SPSStrategy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SimplestPlanningSystem.Model.SPSChangePriority">
+    <Position X="2.75" Y="0.5" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\SPSStrategy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SimplestPlanningSystem.Model.SPSChangeDueDate">
+    <Position X="0.75" Y="2" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\SPSStrategy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SimplestPlanningSystem.Model.SPSChangeTag">
+    <Position X="2.75" Y="2" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\SPSStrategy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SimplestPlanningSystem.Model.SPSTask">
+    <Position X="3.5" Y="3.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AEACAIAAAAAAAEAAAABAAACAAAAAAIAEAAAAAAAAAQA=</HashCode>
+      <FileName>Model\SPSTask.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="SimplestPlanningSystem.Model.IFile">
+    <Position X="13" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAGAAAA=</HashCode>
+      <FileName>Model\FileFactoryMethod.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="SimplestPlanningSystem.Model.FileExtension">
+    <Position X="6" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Model\FileFactoryMethod.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="SimplestPlanningSystem.Model.Tag">
+    <Position X="7.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAAAAAAAAAAAQABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\SPSTask.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="SimplestPlanningSystem.Model.Status">
+    <Position X="7.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAACAAAAAAAAAAAABAAAAAAEAAAA=</HashCode>
+      <FileName>Model\SPSTask.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="SimplestPlanningSystem.Model.Priority">
+    <Position X="7.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAgAAAAAAAAgIAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>Model\SPSTask.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="SimplestPlanningSystem.Model.SPSSearchBy">
+    <Position X="6" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAgAAAEAAAAAAAAAAAAAAABAAAAAEAAAAA=</HashCode>
+      <FileName>Model\SPSTask.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="SimplestPlanningSystem.Model.SPSChange">
+    <Position X="6" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAACAAEAAAgAAAEAAAAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Model\SPSTask.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
