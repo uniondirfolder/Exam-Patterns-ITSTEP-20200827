@@ -42,8 +42,9 @@ namespace SimplestPlanningSystem.Model
         public Tag TagTask { get; set; } = Tag.Personal;
         public string InfoAboutTask { get; set; } = "nothing";
         public DateTime DateTimeStartTask { get; set; } = DateTime.UtcNow;
-        public DateTime DateTimeEndTask { get; set; } 
+        public DateTime DateTimeEndTask { get; set; } = DateTime.UtcNow;
 
+        public SPSTask() { }
         public SPSTask(
             Status status,
             Priority PriorityTask,

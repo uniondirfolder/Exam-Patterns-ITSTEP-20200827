@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\SPSBox.cs" />
     <Compile Include="Service\SPSDispatcher.cs" />
     <Compile Include="Service\SPSMediator.cs" />
     <Compile Include="UserInterface\AddChange.cs">

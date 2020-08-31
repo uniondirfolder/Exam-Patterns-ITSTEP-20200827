@@ -11,12 +11,6 @@ namespace SimplestPlanningSystem.View
 {  
     public class SPSView : SPSmvc, ISPSFacade
     {
-        private SPSFacade controller;
-        public SPSView(SPSFacade controller,ISPSMediator dispatcher):base(dispatcher)
-        {
-            this.controller = controller ?? throw new ArgumentNullException(paramName: nameof(controller));
-        }
-
         public SPSView(ISPSMediator dispatcher) : base(dispatcher)
         {
         }
@@ -58,6 +52,7 @@ namespace SimplestPlanningSystem.View
 
         public override void Activity(SPSServiceCode code)
         {
+            dispatcher.SendServiceCode()
             throw new NotImplementedException();
         }
     }
