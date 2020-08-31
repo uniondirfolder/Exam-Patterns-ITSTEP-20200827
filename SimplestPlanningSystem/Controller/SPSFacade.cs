@@ -58,7 +58,29 @@ namespace SimplestPlanningSystem.Controller
 
         public override void Activity(SPSServiceCode code, SPSBox box )
         {
-            throw new NotImplementedException();
+            switch (code)
+            {
+                case SPSServiceCode.CreateToDoList:
+                    CreateToDoList(box.FilePath);
+                    break;
+                case SPSServiceCode.CreateToDoTask:
+                    CreateToDoTask(box.SPSTask);
+                    break;
+                case SPSServiceCode.SetPriority:
+                    SetPriority(box.Change, box.SPSTask, box.Guid);
+                    break;
+                case SPSServiceCode.SetDueDate:
+                    SetDueDate(box.Change, box.SPSTask, box.Guid);
+                    break;
+                case SPSServiceCode.DeleteTask:
+                    DeleteTask(box.Guid);
+                    break;
+                case SPSServiceCode.Change:
+                    Change(box.SPSTask, box.Guid);
+                    break;
+                default:
+                    break;
+            }
         }
 
         public SPSFacade(ISPSMediator dispatcher, string pathfile = "test.sps"):base(dispatcher)
