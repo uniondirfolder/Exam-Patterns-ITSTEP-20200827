@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SimplestPlanningSystem.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +13,7 @@ namespace SimplestPlanningSystem.Service
     }
     public interface ISPSMediator
     {
-        void SendServiceCode(SPSServiceCode code, SPSmvc smvc);
+        void SendServiceCode(SPSServiceCode code, SPSmvc smvc , SPSBox box);
     }
 
     public abstract class SPSmvc
@@ -23,12 +24,12 @@ namespace SimplestPlanningSystem.Service
             this.dispatcher = dispatcher;
         }
 
-        public void SendServiceCode(SPSServiceCode code) 
+        public void SendServiceCode(SPSServiceCode code, SPSBox box) 
         {
-            dispatcher.SendServiceCode(code, this);
+            dispatcher.SendServiceCode(code, this, box);
         }
 
-        public abstract void Activity(SPSServiceCode code);
+        public abstract void Activity(SPSServiceCode code , SPSBox box);
     }
 
 

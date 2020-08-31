@@ -30,12 +30,13 @@ namespace SimplestPlanningSystem.Model
     }
 
     [Serializable]
-    public class SPSTask
+    public class SPSTask: IDisposable
     {
         [NonSerialized]
         readonly Guid _id = new Guid();
+        [NonSerialized]
+        private bool disposed;
         public Guid Id{ get { return _id; } }
-
         private Status _status = Status.Expired;
         public Status StatusTask { get { return _status; } }
         public Priority PriorityTask { get; set; } = Priority.Normal;
@@ -64,6 +65,26 @@ namespace SimplestPlanningSystem.Model
             this.DateTimeEndTask = DateTimeEndTask;
         }
 
-        
+        public void Dispose()
+        {
+            Dispose(true);
+
+            GC.SuppressFinalize(this);
+        }
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposed)
+            {
+                if (disposing)
+                {
+                    
+                }
+                disposed = true;
+            }
+        }
+        ~SPSTask() 
+        {
+            Dispose(false);
+        }
     }
 }
