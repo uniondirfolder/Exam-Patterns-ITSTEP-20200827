@@ -66,11 +66,18 @@ namespace SimplestPlanningSystem.Model
                 var len = new FileInfo(file);
                 if (len.Length != 0)
                 {
-                    BinaryFormatter formatter = new BinaryFormatter();
-                    using (FileStream fs = new FileStream(file, FileMode.OpenOrCreate))
+                    if (Path.GetExtension(file) == FileExtension.sps.ToString())
                     {
-                        db = (List<SPSTask>)formatter.Deserialize(fs);
-                        result = true;
+                        BinaryFormatter formatter = new BinaryFormatter();
+                        using (FileStream fs = new FileStream(file, FileMode.OpenOrCreate))
+                        {
+                            db = (List<SPSTask>)formatter.Deserialize(fs);
+                            result = true;
+                        }
+                    }
+                    else
+                    {
+                        throw new Exception("Wrong file extension!");
                     }
                 }
                 return result;
@@ -92,7 +99,21 @@ namespace SimplestPlanningSystem.Model
 
             public bool Close() 
             {
-               return Write();
+                bool close = Write();
+                if (close == false)
+                    throw new Exception("False db access!");
+                db = null;
+                file = "";
+                return close;
+            }
+
+            public bool Open(string file) 
+            {
+                if (db != null) { Close(); }
+                if (Path.GetExtension(file) != FileExtension.sps.ToString()) { throw new Exception("Wrong file extension!"); }
+                if (!File.Exists(file)) { throw new Exception("File not exists!"); }
+                this.file = file;
+                return Read();
             }
             public SPSFile(string path)
             {

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -33,6 +34,33 @@ namespace SimplestPlanningSystem.Model
                 { list_temp.RemoveAt(i); }
  
             }
+        }
+
+        static public List<string>SPSTasksToListOfStrings(this List<SPSTask> list) 
+        {
+            List<string> output = new List<string>();
+
+            for (int i = 0; i < list.Count; i++)
+            {
+                output.Add($"{i + 1} | {list[i].InfoAboutTask} | {list[i].StatusTask} | " +
+                    $"{list[i].TagTask} | {list[i].PriorityTask } | {list[i].DateTimeStartTask} | {list[i].DateTimeEndTask}");
+            }
+
+            return output;
+        }
+        static public SPSTask ConvertStringToSPSTask(this string recordSPSTask, List<SPSTask> db)
+        {
+            var task = recordSPSTask ?? throw new ArgumentNullException(paramName: nameof(recordSPSTask));
+            var list = task.Trim().Split('|').ToList();
+            int i;
+            int.TryParse(list[0], out i);
+            return new SPSTask(
+                db[i].StatusTask,
+                db[i].PriorityTask, 
+                db[i].TagTask,
+                db[i].InfoAboutTask,
+                db[i].DateTimeStartTask,
+                db[i].DateTimeEndTask);
         }
     }
 }
