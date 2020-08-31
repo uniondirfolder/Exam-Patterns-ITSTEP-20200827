@@ -3,9 +3,7 @@ using SimplestPlanningSystem.Model;
 using SimplestPlanningSystem.Service;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace SimplestPlanningSystem.View
 {  
@@ -17,32 +15,49 @@ namespace SimplestPlanningSystem.View
 
         public void Change(SPSTask task, Guid id)
         {
-            controller.Change(task, id);
+            var b = new SPSBox();
+            b.SPSTask = task;
+            b.Guid = id;
+            dispatcher.SendServiceCode(SPSServiceCode.Change,this,b);
         }
 
         public void CreateToDoList(string pathfile)
         {
-            controller.CreateToDoList(pathfile);
+            var b = new SPSBox();
+            b.FilePath = pathfile;
+            dispatcher.SendServiceCode(SPSServiceCode.CreateToDoList, this, b);
         }
 
         public void CreateToDoTask(SPSTask task)
         {
-            controller.CreateToDoTask(task);
+            var b = new SPSBox();
+            b.SPSTask = task;
+            dispatcher.SendServiceCode(SPSServiceCode.CreateToDoTask, this, b);
         }
 
         public void DeleteTask(Guid id)
         {
-            controller.DeleteTask(id);
+            var b = new SPSBox();
+            b.Guid = id;
+            dispatcher.SendServiceCode(SPSServiceCode.DeleteTask, this, b);
         }
 
         public void SetDueDate(SPSChange change, SPSTask task, Guid id)
         {
-            controller.SetDueDate(change, task, id);
+            var b = new SPSBox();
+            b.SPSTask = task;
+            b.Guid = id;
+            b.Change = change;
+            dispatcher.SendServiceCode(SPSServiceCode.SetDueDate, this, b);
         }
 
         public void SetPriority(SPSChange change, SPSTask task, Guid id)
         {
-            controller.SetPriority(change, task, id);
+            var b = new SPSBox();
+            b.SPSTask = task;
+            b.Guid = id;
+            b.Change = change;
+            dispatcher.SendServiceCode(SPSServiceCode.SetPriority, this, b);
         }
 
         public void Update(List<string> whom)
@@ -50,9 +65,8 @@ namespace SimplestPlanningSystem.View
             controller.Update(whom);
         }
 
-        public override void Activity(SPSServiceCode code)
+        public override void Activity(SPSServiceCode code, SPSBox box)
         {
-            dispatcher.SendServiceCode()
             throw new NotImplementedException();
         }
     }

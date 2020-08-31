@@ -56,7 +56,7 @@ namespace SimplestPlanningSystem.Controller
             ent = db.Context.SPSTasksToListOfStrings();
         }
 
-        public override void Activity(SPSServiceCode code)
+        public override void Activity(SPSServiceCode code, SPSBox box )
         {
             throw new NotImplementedException();
         }
