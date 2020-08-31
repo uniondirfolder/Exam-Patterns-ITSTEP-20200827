@@ -10,13 +10,11 @@ using System.Windows.Forms;
 
 namespace SimplestPlanningSystem
 {
-    public partial class Main : Form
+    public partial class AddChange : Form
     {
-        public Main()
+        public AddChange()
         {
             InitializeComponent();
         }
-
-       
     }
 }

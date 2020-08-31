@@ -20,14 +20,19 @@ namespace SimplestPlanningSystem.Model
     {
         Low, Normal, High, Middle
     }
-    public enum SearchBy 
+    public enum SPSSearchBy 
     {
         Status, Priority, Tag, Info, Date
+    }
+    public enum SPSChange
+    {
+        Status, Priority, Tag, Info, DateStart, DateEnd
     }
 
     [Serializable]
     public class SPSTask
     {
+        [NonSerialized]
         readonly Guid _id = new Guid();
         public Guid Id{ get { return _id; } }
 
@@ -54,6 +59,8 @@ namespace SimplestPlanningSystem.Model
             this.PriorityTask = PriorityTask;
             this.TagTask = TagTask;
             this.InfoAboutTask = InfoAboutTask ?? throw new ArgumentNullException(paramName: nameof(InfoAboutTask));
+            this.DateTimeStartTask = DateTimeStartTask;
+            this.DateTimeEndTask = DateTimeEndTask;
         }
 
         
