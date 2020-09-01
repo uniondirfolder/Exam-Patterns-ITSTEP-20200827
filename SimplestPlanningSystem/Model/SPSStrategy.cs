@@ -113,7 +113,6 @@ namespace SimplestPlanningSystem.Model
             if (list.Count == 0) { list.Add("No search result..."); }
         }
     }
-
     public abstract class SPSStrategyChange
     {
         public abstract void Change(SPSBox box);

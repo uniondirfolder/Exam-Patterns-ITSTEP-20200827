@@ -46,86 +46,69 @@ namespace SimplestPlanningSystem.Model
         }
         public class ChangeSPSTask : Icommand
         {
-            private Guid id;
-            private SPSTask task;
-            private SPSFile db;
-            public ChangeSPSTask(SPSFile db, SPSTask task, Guid id)
+            private SPSBox box;
+            public ChangeSPSTask(SPSBox box)
             {
-                this.task = task ?? throw new ArgumentNullException(paramName: nameof(task));
-                this.db = db ?? throw new ArgumentNullException(paramName: nameof(db));
-                this.id = id;
+                this.box = box ?? throw new ArgumentNullException(paramName: nameof(box));
+                if (this.box.Tasks==null) throw new ArgumentNullException(paramName: nameof(this.box.Tasks));
             }
             public void Execute()
             {
-                db.Context.SPSChangeItem(id, task);
+                box.Tasks.SPSChangeItem(box);
             }
         }
         public class DeleteSPSTask : Icommand
         {
-            private Guid id;
-            private SPSFile db;
-            public DeleteSPSTask(SPSFile db, Guid id)
+            private SPSBox box;
+            public DeleteSPSTask(SPSBox box)
             {
-                this.db = db ?? throw new ArgumentNullException(paramName: nameof(db));
-                this.id = id;
+                this.box = box ?? throw new ArgumentNullException(paramName: nameof(box));
+                if (this.box.Tasks == null) throw new ArgumentNullException(paramName: nameof(this.box.Tasks));
             }
             public void Execute()
             {
-                db.Context.SPSDeleteItem(id);
+                box.Tasks.SPSDeleteItem(box);
             }
         }
         public class ChangeSPSTaskPriority : Icommand
         {
-            private SPSTask task;
-            private SPSChange change;
-            private Guid guid;
-            private SPSFile db;
-            public ChangeSPSTaskPriority(SPSFile db, SPSChange change, Guid guid)
+            private SPSBox box;
+            public ChangeSPSTaskPriority(SPSBox box)
             {
-                this.task = task ?? throw new ArgumentNullException(paramName: nameof(task));
-                this.change = change;
-                this.guid = guid;
-                this.db = db ?? throw new ArgumentNullException(paramName: nameof(db));
+                this.box = box ?? throw new ArgumentNullException(paramName: nameof(box));
+                if (this.box.Tasks == null) throw new ArgumentNullException(paramName: nameof(this.box.Tasks));
             }
             public void Execute()
             {
                 var c = new SPSChangePriority();
-                c.Change(db.Context, change, task, guid);
+                c.Change(box);
             }
         }
         public class ChangeSPSTaskDueDate : Icommand
         {
-            private SPSTask task;
-            private SPSChange change;
-            private Guid guid;
-            private SPSFile db;
-            public ChangeSPSTaskDueDate (SPSFile db, SPSChange change, Guid guid)
+            private SPSBox box;
+            public ChangeSPSTaskDueDate (SPSBox box)
             {
-                this.task = task ?? throw new ArgumentNullException(paramName: nameof(task));
-                this.change = change;
-                this.guid = guid;
-                this.db = db ?? throw new ArgumentNullException(paramName: nameof(db));
+                this.box = box ?? throw new ArgumentNullException(paramName: nameof(box));
+                if (this.box.Tasks == null) throw new ArgumentNullException(paramName: nameof(this.box.Tasks));
             }
             public void Execute()
             {
                 var c = new SPSChangeDueDate();
-                c.Change(db.Context, change, task, guid);
+                c.Change(box);
             }
         }
         public class UpdateListTasks : Icommand
         {
             private SPSBox box;
-            private SPSFile db;
-            public UpdateListTasks(SPSFile db, SPSBox box)
+            public UpdateListTasks(SPSBox box)
             {
                 this.box = box ?? throw new ArgumentNullException(paramName: nameof(box));
-                this.box = box;
-                this.db = db ?? throw new ArgumentNullException(paramName: nameof(db));
+                if (this.box.Tasks == null) throw new ArgumentNullException(paramName: nameof(this.box.Tasks));
             }
             public void Execute()
             {
-                var c = new SPSChangeDueDate();
-                c.Change(db.Context, change, task, guid);
+                box.ListStrings = box.Tasks.SPSTasksToListOfStrings();
             }
         }
     }

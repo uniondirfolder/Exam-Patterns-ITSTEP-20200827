@@ -23,63 +23,64 @@ namespace SimplestPlanningSystem.Controller
         {
             var q = new CreateSPSdb(db, pathfile);
             q.Execute();
-
         }
-        public void CreateToDoTask(SPSTask task)
+        public void CreateToDoTask(SPSBox box)
         {
-            var q = new CreateSPSTask(db, task);
+            var q = new CreateSPSTask(box);
             q.Execute();
         }
-        public void SetPriority(SPSChange change, SPSTask task, Guid id)
+        public void SetPriority(SPSBox box)
         {
-            var q = new ChangeSPSTaskPriority(db, change, id);
+            var q = new ChangeSPSTaskPriority(box);
             q.Execute();
         }
-        public void SetDueDate(SPSChange change, SPSTask task, Guid id)
+        public void SetDueDate(SPSBox box)
         {
-            var q = new ChangeSPSTaskDueDate(db, change, id);
+            var q = new ChangeSPSTaskDueDate(box);
             q.Execute();
         }
-        public void DeleteTask(Guid id)
+        public void DeleteTask(SPSBox box)
         {
-            var q = new DeleteSPSTask(db, id);
+            var q = new DeleteSPSTask(box);
             q.Execute();
         }
-        public void Change(SPSTask task, Guid id)
+        public void Change(SPSBox box)
         {
-            var q = new ChangeSPSTask(db, task, id);
+            var q = new ChangeSPSTask(box);
             q.Execute();
         }
         public void Update(SPSBox box)
         {
-            List<string> ent = box.ListStrings ?? throw new ArgumentNullException(paramName: nameof(box.ListStrings));
-            ent = db.Context.SPSTasksToListOfStrings();
+            var q = new UpdateListTasks(box);
+            q.Execute();
         }
 
         public override void Activity(SPSServiceCode code, SPSBox box )
         {
+            if(box == null) throw new ArgumentNullException(paramName: nameof(box));
+
             switch (code)
             {
                 case SPSServiceCode.Update:
                     Update(box);
                     break;
                 case SPSServiceCode.DeleteTask:
-                    DeleteTask(box.Guid);
+                    DeleteTask(box);
                     break;
                 case SPSServiceCode.Change:
-                    Change(box.SPSTask, box.Guid);
+                    Change(box);
                     break;
                 case SPSServiceCode.CreateToDoList:
                     CreateToDoList(box.FilePath);
                     break;
                 case SPSServiceCode.CreateToDoTask:
-                    CreateToDoTask(box.SPSTask);
+                    CreateToDoTask(box);
                     break;
                 case SPSServiceCode.SetPriority:
-                    SetPriority(box.Change, box.SPSTask, box.Guid);
+                    SetPriority(box);
                     break;
                 case SPSServiceCode.SetDueDate:
-                    SetDueDate(box.Change, box.SPSTask, box.Guid);
+                    SetDueDate(box);
                     break;
                 default:
                     break;

@@ -24,7 +24,6 @@ namespace SimplestPlanningSystem.Model
                 }
             }
         }
-
         static public void SPSDeleteItem(this List<SPSTask> list, SPSBox box)
         {
             var list_temp = list ?? throw new ArgumentNullException(paramName: nameof(list));

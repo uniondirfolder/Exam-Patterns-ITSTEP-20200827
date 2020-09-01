@@ -5,11 +5,11 @@ namespace SimplestPlanningSystem.Controller
 {
     interface ISPSFacade
     {
-        void Change(SPSTask task, Guid id);
+        void Change(SPSBox box);
         void CreateToDoList(string pathfile);
-        void CreateToDoTask(SPSTask task);
-        void DeleteTask(Guid id);
-        void SetDueDate(SPSChange change, SPSTask task, Guid id);
-        void SetPriority(SPSChange change, SPSTask task, Guid id);
+        void CreateToDoTask(SPSBox box);
+        void DeleteTask(SPSBox box);
+        void SetDueDate(SPSBox box);
+        void SetPriority(SPSBox box);
     }
 }

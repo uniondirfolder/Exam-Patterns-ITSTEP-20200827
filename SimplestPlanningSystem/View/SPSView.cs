@@ -13,56 +13,41 @@ namespace SimplestPlanningSystem.View
         {
         }
 
-        public void Change(SPSTask task, Guid id)
+        public void Change(SPSBox box)
         {
-            var b = new SPSBox();
-            b.SPSTask = task;
-            b.Guid = id;
-            dispatcher.SendServiceCode(SPSServiceCode.Change,this,b);
+            dispatcher.SendServiceCode(SPSServiceCode.Change,this,box);
         }
 
-        public void CreateToDoList(string pathfile)
+        public void CreateToDoList(string filepath)
         {
-            var b = new SPSBox();
-            b.FilePath = pathfile;
-            dispatcher.SendServiceCode(SPSServiceCode.CreateToDoList, this, b);
+            var box = new SPSBox();
+            box.FilePath = filepath;
+            dispatcher.SendServiceCode(SPSServiceCode.CreateToDoList, this, box);
         }
 
-        public void CreateToDoTask(SPSTask task)
+        public void CreateToDoTask(SPSBox box)
         {
-            var b = new SPSBox();
-            b.SPSTask = task;
-            dispatcher.SendServiceCode(SPSServiceCode.CreateToDoTask, this, b);
+            dispatcher.SendServiceCode(SPSServiceCode.CreateToDoTask, this, box);
         }
 
-        public void DeleteTask(Guid id)
+        public void DeleteTask(SPSBox box)
         {
-            var b = new SPSBox();
-            b.Guid = id;
-            dispatcher.SendServiceCode(SPSServiceCode.DeleteTask, this, b);
+            dispatcher.SendServiceCode(SPSServiceCode.DeleteTask, this, box);
         }
 
-        public void SetDueDate(SPSChange change, SPSTask task, Guid id)
+        public void SetDueDate(SPSBox box)
         {
-            var b = new SPSBox();
-            b.SPSTask = task;
-            b.Guid = id;
-            b.Change = change;
-            dispatcher.SendServiceCode(SPSServiceCode.SetDueDate, this, b);
+            dispatcher.SendServiceCode(SPSServiceCode.SetDueDate, this, box);
         }
 
-        public void SetPriority(SPSChange change, SPSTask task, Guid id)
+        public void SetPriority(SPSBox box)
         {
-            var b = new SPSBox();
-            b.SPSTask = task;
-            b.Guid = id;
-            b.Change = change;
-            dispatcher.SendServiceCode(SPSServiceCode.SetPriority, this, b);
+            dispatcher.SendServiceCode(SPSServiceCode.SetPriority, this, box);
         }
 
-        public void Update(List<string> whom)
+        public void Update(SPSBox box)
         {
-            controller.Update(whom);
+            dispatcher.SendServiceCode(SPSServiceCode.Update, this, box);
         }
 
         public override void Activity(SPSServiceCode code, SPSBox box)
