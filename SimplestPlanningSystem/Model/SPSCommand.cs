@@ -108,7 +108,18 @@ namespace SimplestPlanningSystem.Model
             }
             public void Execute()
             {
-                box.ListStrings = box.Tasks.SPSTasksToListOfStrings();
+                if (box.ListView != null)
+                {
+                    box.ListView.Clear();
+                    foreach (var item in box.Tasks)
+                    {
+                        box.ListView.Items.Add(item.ToString());
+                    }
+                }
+                else
+                {
+                    box.ListStrings = box.Tasks.SPSTasksToListOfStrings();
+                }
             }
         }
     }

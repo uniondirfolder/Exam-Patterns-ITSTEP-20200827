@@ -73,7 +73,7 @@ namespace SimplestPlanningSystem.UserInterface
                 }
                 box.SPSTask.InfoAboutTask = tbxTextInfo.Text;
                 listView.Items.Add(box.SPSTask.ToString());
-                dispatcher.SendServiceCode(SPSServiceCode.CreateToDoTask, dispatcher.GetController(), box);
+                dispatcher.SendServiceCode(SPSServiceCode.CreateToDoTask, dispatcher.GetView(), box);
                 box.Dispose();
                 Close();
             }

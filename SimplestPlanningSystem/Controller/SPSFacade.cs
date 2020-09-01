@@ -54,7 +54,10 @@ namespace SimplestPlanningSystem.Controller
             var q = new UpdateListTasks(box);
             q.Execute();
         }
-
+        public void SetContext(List<SPSTask> tasks) 
+        {
+            db.SetContext(tasks);
+        }
         public override void Activity(SPSServiceCode code, SPSBox box )
         {
             if(box == null) throw new ArgumentNullException(paramName: nameof(box));

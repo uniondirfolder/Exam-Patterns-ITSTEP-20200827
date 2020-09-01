@@ -79,6 +79,7 @@ namespace SimplestPlanningSystem
                     SPSBox box = new SPSBox();
                     box.FilePath = openFileDialog.FileName;
                     Dispatcher.SendServiceCode(SPSServiceCode.CreateToDoList, Dispatcher.GetController(), box);
+                    Dispatcher.SendServiceCode(SPSServiceCode.Update, Dispatcher.GetView(), box);
                     box.Dispose();
                 }
 

@@ -128,6 +128,7 @@ namespace SimplestPlanningSystem.Model
                     f.Close();
                 }
             }
+            public void SetContext(List<SPSTask> tasks) { tasks = this.db; }
         }
 
         public class FileFactory

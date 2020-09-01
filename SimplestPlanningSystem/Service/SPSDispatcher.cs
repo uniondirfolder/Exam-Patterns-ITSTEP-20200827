@@ -32,8 +32,10 @@ namespace SimplestPlanningSystem.Service
         }
         public void SendServiceCode(SPSServiceCode code, SPSmvc smvc, SPSBox box)
         {
+            controller.SetContext(box.Tasks);
+
             if (smvc is SPSFacade)
-            {
+            {                
                 view.Activity(code,box);
             }
             else if (smvc is SPSView) 

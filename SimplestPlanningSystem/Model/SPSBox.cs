@@ -19,7 +19,7 @@ namespace SimplestPlanningSystem.Model
         public SPSTask SPSTask { get; set; } = new SPSTask();
         public SPSSearchBy Search { get; set; } = SPSSearchBy.Tag;
         public SPSChange Change { get; set; } = SPSChange.Tag;
-
+        public ListView ListView = null;
         public List<string> ListStrings = null;
 
         public void Dispose()
@@ -43,7 +43,7 @@ namespace SimplestPlanningSystem.Model
         {
             Tasks = null;
             ListStrings = null;
-
+            ListView = null;
             Dispose(false);
         }
     }
