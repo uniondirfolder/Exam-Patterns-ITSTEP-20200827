@@ -44,6 +44,11 @@ namespace SimplestPlanningSystem.Controller
             var q = new ChangeSPSTaskTag(box);
             q.Execute();
         }
+        public void SetInfo(SPSBox box)
+        {
+            var q = new ChangeSPSTaskInfo(box);
+            q.Execute();
+        }
         public void DeleteTask(SPSBox box)
         {
             var q = new DeleteSPSTask(box);
@@ -99,6 +104,9 @@ namespace SimplestPlanningSystem.Controller
                     break;
                 case SPSServiceCode.SetTag:
                     SetTag(box);
+                    break;
+                case SPSServiceCode.SetInfo:
+                    SetInfo(box);
                     break;
                 default:
                     break;

@@ -131,13 +131,13 @@ namespace SimplestPlanningSystem.UserInterface
                             dispatcher.SendServiceCode(SPSServiceCode.SetPriority, dispatcher.GetView(), box);
                             break;
                         case SPSChange.Tag:
-                            dispatcher.SendServiceCode(SPSServiceCode.Change, dispatcher.GetView(), box);
+                            dispatcher.SendServiceCode(SPSServiceCode.SetTag, dispatcher.GetView(), box);
                             break;
                         case SPSChange.Info:
-                            break;
-                        case SPSChange.DateStart:
+                            dispatcher.SendServiceCode(SPSServiceCode., dispatcher.GetView(), box);
                             break;
                         case SPSChange.DateEnd:
+                            dispatcher.SendServiceCode(SPSServiceCode.SetDueDate, dispatcher.GetView(), box);
                             break;
                         default:
                             break;

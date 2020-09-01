@@ -12,5 +12,6 @@ namespace SimplestPlanningSystem.Controller
         void SetDueDate(SPSBox box);
         void SetPriority(SPSBox box);
         void SetTag(SPSBox box);
+        void SetInfo(SPSBox box);
     }
 }

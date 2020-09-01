@@ -169,5 +169,22 @@ namespace SimplestPlanningSystem.Model
             }
         }
     }
+    class SPSChangeInfo : SPSStrategyChange
+    {
+        public override void Change(SPSBox box)
+        {
+            var msg = box ?? throw new ArgumentNullException(paramName: nameof(box));
+            var db = box.Tasks ?? throw new ArgumentNullException(paramName: nameof(box.Tasks));
+
+            if (msg.Change == SPSChange.Info)
+            {
+                for (int i = 0; i < db.Count; i++)
+                {
+                    if (db[i].Id == box.SPSTask.Id)
+                    { db[i].InfoAboutTask = box.SPSTask.InfoAboutTask; break; }
+                }
+            }
+        }
+    }
 
 }

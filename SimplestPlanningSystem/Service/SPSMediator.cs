@@ -9,7 +9,7 @@ namespace SimplestPlanningSystem.Service
 {
     public enum SPSServiceCode
     {
-        CreateToDoList, CreateToDoTask, SetPriority, SetDueDate, DeleteTask, Change, Update, Fill, SetTag
+        CreateToDoList, CreateToDoTask, SetPriority, SetDueDate, DeleteTask, Change, Update, Fill, SetTag, SetInfo
     }
     public interface ISPSMediator
     {
