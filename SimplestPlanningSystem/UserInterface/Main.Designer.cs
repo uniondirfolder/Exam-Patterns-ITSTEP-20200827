@@ -47,7 +47,7 @@
             this.textView.Multiline = true;
             this.textView.Name = "textView";
             this.textView.ReadOnly = true;
-            this.textView.Size = new System.Drawing.Size(386, 426);
+            this.textView.Size = new System.Drawing.Size(386, 477);
             this.textView.TabIndex = 0;
             // 
             // btnCreateNewList
@@ -58,6 +58,7 @@
             this.btnCreateNewList.TabIndex = 1;
             this.btnCreateNewList.Text = "Create New List";
             this.btnCreateNewList.UseVisualStyleBackColor = true;
+            this.btnCreateNewList.Click += new System.EventHandler(this.btnCreateNewList_Click);
             // 
             // button2
             // 
@@ -67,6 +68,7 @@
             this.button2.TabIndex = 1;
             this.button2.Text = "Create New Task";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -144,7 +146,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(640, 450);
+            this.ClientSize = new System.Drawing.Size(669, 501);
             this.Controls.Add(this.button10);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.button8);

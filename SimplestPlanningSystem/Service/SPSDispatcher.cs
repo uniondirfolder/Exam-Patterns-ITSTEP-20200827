@@ -22,6 +22,14 @@ namespace SimplestPlanningSystem.Service
         {
             this.view = view;
         }
+        public SPSView GetView()
+        {
+            return view;
+        }
+        public SPSFacade GetController()
+        {
+            return controller;
+        }
         public void SendServiceCode(SPSServiceCode code, SPSmvc smvc, SPSBox box)
         {
             if (smvc is SPSFacade)

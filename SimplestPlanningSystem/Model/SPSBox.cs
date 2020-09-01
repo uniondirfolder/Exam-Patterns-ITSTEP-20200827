@@ -9,7 +9,7 @@ namespace SimplestPlanningSystem.Model
 {
     public class SPSBox: IDisposable
     {
-        private bool disposedValue;
+        private bool disposed;
 
         public string FilePath { get; set; } = "nothing";
         public DateTime DateTime { get; set; } = DateTime.UtcNow;
@@ -21,34 +21,26 @@ namespace SimplestPlanningSystem.Model
 
         public List<string> ListStrings = null;
 
+        public void Dispose()
+        {
+            Dispose(true);
+
+            GC.SuppressFinalize(this);
+        }
         protected virtual void Dispose(bool disposing)
         {
-            if (!disposedValue)
+            if (!disposed)
             {
                 if (disposing)
                 {
-                    // TODO: dispose managed state (managed objects)
-                    SPSTask.Dispose();
-                }
 
-                // TODO: free unmanaged resources (unmanaged objects) and override finalizer
-                // TODO: set large fields to null
-                disposedValue = true;
+                }
+                disposed = true;
             }
         }
-
-        // TODO: override finalizer only if 'Dispose(bool disposing)' has code to free unmanaged resources
-        ~SPSBox()
+        ~SPSTask()
         {
-            // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
-            Dispose(disposing: false);
-        }
-
-        void IDisposable.Dispose()
-        {
-            // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
-            Dispose(disposing: true);
-            GC.SuppressFinalize(this);
+            Dispose(false);
         }
     }
 }
