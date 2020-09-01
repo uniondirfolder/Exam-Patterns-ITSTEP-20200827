@@ -38,5 +38,45 @@ namespace SimplestPlanningSystem
             var frm = new FormNewTask(Dispatcher, listView);
             frm.Show();
         }
+
+        private void btnSetDateDue_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDeleteTask_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnChangeTask_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSetTag_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCahnge_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLoadFromfile_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSaveToFile_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

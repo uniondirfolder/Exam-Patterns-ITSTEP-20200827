@@ -30,14 +30,14 @@
         {
             this.btnCreateNewList = new System.Windows.Forms.Button();
             this.btnCreateNewTask = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
+            this.btnSetDateDue = new System.Windows.Forms.Button();
+            this.btnDeleteTask = new System.Windows.Forms.Button();
+            this.btnChangeTask = new System.Windows.Forms.Button();
+            this.btnSetTag = new System.Windows.Forms.Button();
+            this.btnCahnge = new System.Windows.Forms.Button();
+            this.btnLoadFromfile = new System.Windows.Forms.Button();
+            this.btnSaveToFile = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.listView = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
@@ -61,77 +61,85 @@
             this.btnCreateNewTask.UseVisualStyleBackColor = true;
             this.btnCreateNewTask.Click += new System.EventHandler(this.btnCreateNewTask_Click);
             // 
-            // button3
+            // btnSetDateDue
             // 
-            this.button3.Location = new System.Drawing.Point(440, 112);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(142, 28);
-            this.button3.TabIndex = 1;
-            this.button3.Text = "Set Date Due";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnSetDateDue.Location = new System.Drawing.Point(440, 112);
+            this.btnSetDateDue.Name = "btnSetDateDue";
+            this.btnSetDateDue.Size = new System.Drawing.Size(142, 28);
+            this.btnSetDateDue.TabIndex = 1;
+            this.btnSetDateDue.Text = "Set Date Due";
+            this.btnSetDateDue.UseVisualStyleBackColor = true;
+            this.btnSetDateDue.Click += new System.EventHandler(this.btnSetDateDue_Click);
             // 
-            // button4
+            // btnDeleteTask
             // 
-            this.button4.Location = new System.Drawing.Point(440, 146);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(142, 28);
-            this.button4.TabIndex = 1;
-            this.button4.Text = "Delete Task";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btnDeleteTask.Location = new System.Drawing.Point(440, 146);
+            this.btnDeleteTask.Name = "btnDeleteTask";
+            this.btnDeleteTask.Size = new System.Drawing.Size(142, 28);
+            this.btnDeleteTask.TabIndex = 1;
+            this.btnDeleteTask.Text = "Delete Task";
+            this.btnDeleteTask.UseVisualStyleBackColor = true;
+            this.btnDeleteTask.Click += new System.EventHandler(this.btnDeleteTask_Click);
             // 
-            // button5
+            // btnChangeTask
             // 
-            this.button5.Location = new System.Drawing.Point(440, 180);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(142, 28);
-            this.button5.TabIndex = 1;
-            this.button5.Text = "Change Task";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnChangeTask.Location = new System.Drawing.Point(440, 180);
+            this.btnChangeTask.Name = "btnChangeTask";
+            this.btnChangeTask.Size = new System.Drawing.Size(142, 28);
+            this.btnChangeTask.TabIndex = 1;
+            this.btnChangeTask.Text = "Change Task";
+            this.btnChangeTask.UseVisualStyleBackColor = true;
+            this.btnChangeTask.Click += new System.EventHandler(this.btnChangeTask_Click);
             // 
-            // button6
+            // btnSetTag
             // 
-            this.button6.Location = new System.Drawing.Point(440, 214);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(142, 28);
-            this.button6.TabIndex = 1;
-            this.button6.Text = "Set Tag";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnSetTag.Location = new System.Drawing.Point(440, 214);
+            this.btnSetTag.Name = "btnSetTag";
+            this.btnSetTag.Size = new System.Drawing.Size(142, 28);
+            this.btnSetTag.TabIndex = 1;
+            this.btnSetTag.Text = "Set Tag";
+            this.btnSetTag.UseVisualStyleBackColor = true;
+            this.btnSetTag.Click += new System.EventHandler(this.btnSetTag_Click);
             // 
-            // button7
+            // btnCahnge
             // 
-            this.button7.Location = new System.Drawing.Point(440, 248);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(142, 28);
-            this.button7.TabIndex = 1;
-            this.button7.Text = "Change Task";
-            this.button7.UseVisualStyleBackColor = true;
+            this.btnCahnge.Location = new System.Drawing.Point(440, 248);
+            this.btnCahnge.Name = "btnCahnge";
+            this.btnCahnge.Size = new System.Drawing.Size(142, 28);
+            this.btnCahnge.TabIndex = 1;
+            this.btnCahnge.Text = "Change Task";
+            this.btnCahnge.UseVisualStyleBackColor = true;
+            this.btnCahnge.Click += new System.EventHandler(this.btnCahnge_Click);
             // 
-            // button8
+            // btnLoadFromfile
             // 
-            this.button8.Location = new System.Drawing.Point(440, 282);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(142, 28);
-            this.button8.TabIndex = 1;
-            this.button8.Text = "Load from file";
-            this.button8.UseVisualStyleBackColor = true;
+            this.btnLoadFromfile.Location = new System.Drawing.Point(440, 282);
+            this.btnLoadFromfile.Name = "btnLoadFromfile";
+            this.btnLoadFromfile.Size = new System.Drawing.Size(142, 28);
+            this.btnLoadFromfile.TabIndex = 1;
+            this.btnLoadFromfile.Text = "Load from file";
+            this.btnLoadFromfile.UseVisualStyleBackColor = true;
+            this.btnLoadFromfile.Click += new System.EventHandler(this.btnLoadFromfile_Click);
             // 
-            // button9
+            // btnSaveToFile
             // 
-            this.button9.Location = new System.Drawing.Point(440, 316);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(142, 28);
-            this.button9.TabIndex = 1;
-            this.button9.Text = "Save to File";
-            this.button9.UseVisualStyleBackColor = true;
+            this.btnSaveToFile.Location = new System.Drawing.Point(440, 316);
+            this.btnSaveToFile.Name = "btnSaveToFile";
+            this.btnSaveToFile.Size = new System.Drawing.Size(142, 28);
+            this.btnSaveToFile.TabIndex = 1;
+            this.btnSaveToFile.Text = "Save to File";
+            this.btnSaveToFile.UseVisualStyleBackColor = true;
+            this.btnSaveToFile.Click += new System.EventHandler(this.btnSaveToFile_Click);
             // 
-            // button10
+            // btnSearch
             // 
-            this.button10.Location = new System.Drawing.Point(440, 350);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(142, 28);
-            this.button10.TabIndex = 1;
-            this.button10.Text = "Search";
-            this.button10.UseVisualStyleBackColor = true;
+            this.btnSearch.Location = new System.Drawing.Point(440, 350);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(142, 28);
+            this.btnSearch.TabIndex = 1;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // listView
             // 
@@ -149,14 +157,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(669, 501);
             this.Controls.Add(this.listView);
-            this.Controls.Add(this.button10);
-            this.Controls.Add(this.button9);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.btnSaveToFile);
+            this.Controls.Add(this.btnLoadFromfile);
+            this.Controls.Add(this.btnCahnge);
+            this.Controls.Add(this.btnSetTag);
+            this.Controls.Add(this.btnChangeTask);
+            this.Controls.Add(this.btnDeleteTask);
+            this.Controls.Add(this.btnSetDateDue);
             this.Controls.Add(this.btnCreateNewTask);
             this.Controls.Add(this.btnCreateNewList);
             this.Name = "Main";
@@ -169,14 +177,14 @@
         #endregion
         private System.Windows.Forms.Button btnCreateNewList;
         private System.Windows.Forms.Button btnCreateNewTask;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.Button btnSetDateDue;
+        private System.Windows.Forms.Button btnDeleteTask;
+        private System.Windows.Forms.Button btnChangeTask;
+        private System.Windows.Forms.Button btnSetTag;
+        private System.Windows.Forms.Button btnCahnge;
+        private System.Windows.Forms.Button btnLoadFromfile;
+        private System.Windows.Forms.Button btnSaveToFile;
+        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.ListView listView;
     }
 }
