@@ -52,15 +52,14 @@ namespace SimplestPlanningSystem
 
         private void btnChangeTask_Click(object sender, EventArgs e)
         {
-
+            if (listView.SelectedItems.Count > 0)
+            {
+                var index = listView.Items.IndexOf(listView.SelectedItems[0]);
+                var frm = new FormChange(Dispatcher, index, SPSChange );
+            }
         }
 
         private void btnSetTag_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnCahnge_Click(object sender, EventArgs e)
         {
 
         }
@@ -78,8 +77,9 @@ namespace SimplestPlanningSystem
                 {
                     SPSBox box = new SPSBox();
                     box.FilePath = openFileDialog.FileName;
-                    Dispatcher.SendServiceCode(SPSServiceCode.CreateToDoList, Dispatcher.GetController(), box);
-                    Dispatcher.SendServiceCode(SPSServiceCode.Update, Dispatcher.GetView(), box);
+                    Dispatcher.SendServiceCode(SPSServiceCode.CreateToDoList, Dispatcher.GetView(), box);
+                    box.ListView = listView;
+                    Dispatcher.SendServiceCode(SPSServiceCode.Update, Dispatcher.GetController(), box);
                     box.Dispose();
                 }
 

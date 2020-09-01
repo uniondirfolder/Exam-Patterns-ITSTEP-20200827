@@ -17,11 +17,56 @@ namespace SimplestPlanningSystem.UserInterface
     {
         private ListView listView;
         private SPSDispatcher dispatcher;
-        public FormNewTask(SPSDispatcher dispatcher, ListView listView)
+        private SPSChange change;
+        private int index;
+        public FormNewTask(SPSDispatcher dispatcher, ListView listView, SPSChange change, int index)
         {
             this.dispatcher = dispatcher;
             this.listView = listView;
+            this.change = change;
+            this.index = index;
+
             InitializeComponent();
+
+            if (index > -1) 
+            {
+                Text = "Change Task"; 
+                btnAddTask.Text = "Save";
+                cmbPriority.IsAccessible = false;
+                cmbTag.IsAccessible = false;
+                tbxTextInfo.ReadOnly = true;
+                dateTimePickerEnd.IsAccessible = false;
+                dateTimePickerStart.IsAccessible = false;
+
+                switch (change)
+                {
+                    case SPSChange.Priority:
+                        cmbPriority.IsAccessible = true;
+                        break;
+                    case SPSChange.Tag:
+                        cmbTag.IsAccessible = true;
+                        break;
+                    case SPSChange.Info:
+                        tbxTextInfo.ReadOnly = false;
+                        break;
+                    case SPSChange.DateStart:
+                        dateTimePickerStart.IsAccessible = true;
+                        break;
+                    case SPSChange.DateEnd:
+                        dateTimePickerEnd.IsAccessible = true;
+                        break;
+                    default:
+                        break;
+                }
+
+                var box = new SPSBox();
+                dispatcher.SendServiceCode(SPSServiceCode.Change, dispatcher.GetView(), box);
+
+            }
+
+            
+
+           
         }
 
         private void btnAddTask_Click(object sender, EventArgs e)

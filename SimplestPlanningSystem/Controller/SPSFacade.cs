@@ -58,6 +58,10 @@ namespace SimplestPlanningSystem.Controller
         {
             db.SetContext(tasks);
         }
+        private void Fill(SPSBox box) 
+        {
+            box.SPSTask = box.GetCopyById(box.index);
+        } 
         public override void Activity(SPSServiceCode code, SPSBox box )
         {
             if(box == null) throw new ArgumentNullException(paramName: nameof(box));
@@ -84,6 +88,9 @@ namespace SimplestPlanningSystem.Controller
                     break;
                 case SPSServiceCode.SetDueDate:
                     SetDueDate(box);
+                    break;
+                case SPSServiceCode.Fill:
+                    Fill(box);
                     break;
                 default:
                     break;

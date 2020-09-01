@@ -21,7 +21,7 @@ namespace SimplestPlanningSystem.Model
         public SPSChange Change { get; set; } = SPSChange.Tag;
         public ListView ListView = null;
         public List<string> ListStrings = null;
-
+        public int index =-1;
         public void Dispose()
         {
             Dispose(true);

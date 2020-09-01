@@ -32,7 +32,6 @@
             this.btnCreateNewTask = new System.Windows.Forms.Button();
             this.btnSetDateDue = new System.Windows.Forms.Button();
             this.btnDeleteTask = new System.Windows.Forms.Button();
-            this.btnChangeTask = new System.Windows.Forms.Button();
             this.btnSetTag = new System.Windows.Forms.Button();
             this.btnCahnge = new System.Windows.Forms.Button();
             this.btnLoadFromfile = new System.Windows.Forms.Button();
@@ -81,19 +80,9 @@
             this.btnDeleteTask.UseVisualStyleBackColor = true;
             this.btnDeleteTask.Click += new System.EventHandler(this.btnDeleteTask_Click);
             // 
-            // btnChangeTask
-            // 
-            this.btnChangeTask.Location = new System.Drawing.Point(440, 180);
-            this.btnChangeTask.Name = "btnChangeTask";
-            this.btnChangeTask.Size = new System.Drawing.Size(142, 28);
-            this.btnChangeTask.TabIndex = 1;
-            this.btnChangeTask.Text = "Change Task";
-            this.btnChangeTask.UseVisualStyleBackColor = true;
-            this.btnChangeTask.Click += new System.EventHandler(this.btnChangeTask_Click);
-            // 
             // btnSetTag
             // 
-            this.btnSetTag.Location = new System.Drawing.Point(440, 214);
+            this.btnSetTag.Location = new System.Drawing.Point(440, 180);
             this.btnSetTag.Name = "btnSetTag";
             this.btnSetTag.Size = new System.Drawing.Size(142, 28);
             this.btnSetTag.TabIndex = 1;
@@ -103,17 +92,17 @@
             // 
             // btnCahnge
             // 
-            this.btnCahnge.Location = new System.Drawing.Point(440, 248);
+            this.btnCahnge.Location = new System.Drawing.Point(440, 214);
             this.btnCahnge.Name = "btnCahnge";
             this.btnCahnge.Size = new System.Drawing.Size(142, 28);
             this.btnCahnge.TabIndex = 1;
             this.btnCahnge.Text = "Change Task";
             this.btnCahnge.UseVisualStyleBackColor = true;
-            this.btnCahnge.Click += new System.EventHandler(this.btnCahnge_Click);
+            this.btnCahnge.Click += new System.EventHandler(this.btnChangeTask_Click);
             // 
             // btnLoadFromfile
             // 
-            this.btnLoadFromfile.Location = new System.Drawing.Point(440, 282);
+            this.btnLoadFromfile.Location = new System.Drawing.Point(440, 248);
             this.btnLoadFromfile.Name = "btnLoadFromfile";
             this.btnLoadFromfile.Size = new System.Drawing.Size(142, 28);
             this.btnLoadFromfile.TabIndex = 1;
@@ -123,7 +112,7 @@
             // 
             // btnSaveToFile
             // 
-            this.btnSaveToFile.Location = new System.Drawing.Point(440, 316);
+            this.btnSaveToFile.Location = new System.Drawing.Point(440, 282);
             this.btnSaveToFile.Name = "btnSaveToFile";
             this.btnSaveToFile.Size = new System.Drawing.Size(142, 28);
             this.btnSaveToFile.TabIndex = 1;
@@ -133,7 +122,7 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(440, 350);
+            this.btnSearch.Location = new System.Drawing.Point(440, 316);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(142, 28);
             this.btnSearch.TabIndex = 1;
@@ -162,7 +151,6 @@
             this.Controls.Add(this.btnLoadFromfile);
             this.Controls.Add(this.btnCahnge);
             this.Controls.Add(this.btnSetTag);
-            this.Controls.Add(this.btnChangeTask);
             this.Controls.Add(this.btnDeleteTask);
             this.Controls.Add(this.btnSetDateDue);
             this.Controls.Add(this.btnCreateNewTask);
@@ -179,7 +167,6 @@
         private System.Windows.Forms.Button btnCreateNewTask;
         private System.Windows.Forms.Button btnSetDateDue;
         private System.Windows.Forms.Button btnDeleteTask;
-        private System.Windows.Forms.Button btnChangeTask;
         private System.Windows.Forms.Button btnSetTag;
         private System.Windows.Forms.Button btnCahnge;
         private System.Windows.Forms.Button btnLoadFromfile;

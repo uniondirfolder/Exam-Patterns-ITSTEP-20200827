@@ -66,7 +66,7 @@ namespace SimplestPlanningSystem.Model
                 _db[index].DateTimeStartTask,
                 _db[index].DateTimeEndTask);
         }
-        static public Guid GetGiudByIndex(this int index, SPSBox box)
+        static public Guid GetGuidByIndex(this SPSBox box, int index)
         {
             var _box = box ?? throw new ArgumentNullException(paramName: nameof(box));
             var _db = _box.Tasks ?? throw new ArgumentNullException(paramName: nameof(_box.Tasks));
@@ -75,6 +75,18 @@ namespace SimplestPlanningSystem.Model
             output = _db[index].Id;
 
             return output;
+        }
+        static public SPSTask GetCopyById(this SPSBox box, int index) 
+        {
+            var _box = box ?? throw new ArgumentNullException(paramName: nameof(box));
+            var _db = _box.Tasks ?? throw new ArgumentNullException(paramName: nameof(_box.Tasks));
+            return new SPSTask(
+                _db[index].StatusTask,
+                _db[index].PriorityTask,
+                _db[index].TagTask,
+                _db[index].InfoAboutTask,
+                _db[index].DateTimeStartTask,
+                _db[index].DateTimeEndTask);
         }
     }
 }
