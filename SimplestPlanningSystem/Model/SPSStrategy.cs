@@ -11,168 +11,161 @@ namespace SimplestPlanningSystem.Model
 
     abstract class SPSStrategySearch
     {
-        public abstract List<SPSTask> Search(List<SPSTask> tasks, SPSSearchBy search, SPSTask temp);
+        public abstract void Search(SPSBox box);
     }
     class SPSSearchByDateStart: SPSStrategySearch
     {
-        public override List<SPSTask> Search(List<SPSTask> tasks, SPSSearchBy search, SPSTask temp)
+        public override void Search(SPSBox box)
         {
-            var box = temp ?? throw new ArgumentNullException(paramName: nameof(temp));
-            var list = tasks ?? throw new ArgumentNullException(paramName: nameof(tasks));
+            var msg = box ?? throw new ArgumentNullException(paramName: nameof(box));
+            var list = box.ListStrings ?? throw new ArgumentNullException(paramName: nameof(box.ListStrings));
+            var db = box.Tasks ?? throw new ArgumentNullException(paramName: nameof(box.Tasks));
 
-            List<SPSTask> output = null;
-
-            if (search == SPSSearchBy.Date)
-            {
-                output = new List<SPSTask>();
-                foreach (var item in list)
+            if (msg.Search == SPSSearchBy.Date) {
+                foreach (var item in db)
                 {
-                    if (item.DateTimeStartTask == box.DateTimeStartTask)
-                        output.Add(item);
+                    if (item.DateTimeStartTask == box.DateTime)
+                    { list.Add(item.ToString()); }
                 }
             }
-            
-            return output;
+
+            if (list.Count == 0) { list.Add("No search result..."); }
         }
     }
     class SPSSearchByTag: SPSStrategySearch
     {
-        public override List<SPSTask> Search(List<SPSTask> tasks, SPSSearchBy search, SPSTask temp)
+        public override void Search(SPSBox box)
         {
-            var box = temp ?? throw new ArgumentNullException(paramName: nameof(temp));
-            var list = tasks ?? throw new ArgumentNullException(paramName: nameof(tasks));
+            var msg = box ?? throw new ArgumentNullException(paramName: nameof(box));
+            var list = box.ListStrings ?? throw new ArgumentNullException(paramName: nameof(box.ListStrings));
+            var db = box.Tasks ?? throw new ArgumentNullException(paramName: nameof(box.Tasks));
 
-            List<SPSTask> output = null;
-
-            if (search == SPSSearchBy.Tag)
+            if (msg.Search == SPSSearchBy.Tag)
             {
-                output = new List<SPSTask>();
-                foreach (var item in list)
+                foreach (var item in db)
                 {
-                    if (item.DateTimeStartTask == box.DateTimeStartTask)
-                        output.Add(item);
+                    if (item.TagTask == msg.SPSTask.TagTask)
+                    { list.Add(item.ToString()); }
                 }
             }
 
-            return output;
+            if (list.Count == 0) { list.Add("No search result..."); }
         }
     }
     class SPSSearchByPriority : SPSStrategySearch
     {
-        public override List<SPSTask> Search(List<SPSTask> tasks, SPSSearchBy search, SPSTask temp)
+        public override void Search(SPSBox box)
         {
-            var box = temp ?? throw new ArgumentNullException(paramName: nameof(temp));
-            var list = tasks ?? throw new ArgumentNullException(paramName: nameof(tasks));
+            var msg = box ?? throw new ArgumentNullException(paramName: nameof(box));
+            var list = box.ListStrings ?? throw new ArgumentNullException(paramName: nameof(box.ListStrings));
+            var db = box.Tasks ?? throw new ArgumentNullException(paramName: nameof(box.Tasks));
 
-            List<SPSTask> output = null;
-
-            if (search == SPSSearchBy.Priority)
+            if (msg.Search == SPSSearchBy.Priority)
             {
-                output = new List<SPSTask>();
-                foreach (var item in list)
+                foreach (var item in db)
                 {
-                    if (item.DateTimeStartTask == box.DateTimeStartTask)
-                        output.Add(item);
+                    if (item.PriorityTask == msg.SPSTask.PriorityTask)
+                    { list.Add(item.ToString()); }
                 }
             }
 
-            return output;
+            if (list.Count == 0) { list.Add("No search result..."); }
         }
     }
     class SPSSearchByStatus : SPSStrategySearch
     {
-        public override List<SPSTask> Search(List<SPSTask> tasks, SPSSearchBy search, SPSTask temp)
+        public override void Search(SPSBox box)
         {
-            var box = temp ?? throw new ArgumentNullException(paramName: nameof(temp));
-            var list = tasks ?? throw new ArgumentNullException(paramName: nameof(tasks));
+            var msg = box ?? throw new ArgumentNullException(paramName: nameof(box));
+            var list = box.ListStrings ?? throw new ArgumentNullException(paramName: nameof(box.ListStrings));
+            var db = box.Tasks ?? throw new ArgumentNullException(paramName: nameof(box.Tasks));
 
-            List<SPSTask> output = null;
-
-            if (search == SPSSearchBy.Status)
+            if (msg.Search == SPSSearchBy.Status)
             {
-                output = new List<SPSTask>();
-                foreach (var item in list)
+                foreach (var item in db)
                 {
-                    if (item.DateTimeStartTask == box.DateTimeStartTask)
-                        output.Add(item);
+                    if (item.StatusTask == msg.SPSTask.StatusTask)
+                    { list.Add(item.ToString()); }
                 }
             }
 
-            return output;
+            if (list.Count == 0) { list.Add("No search result..."); }
         }
     }
     class SPSSearchByInfo : SPSStrategySearch
     {
-        public override List<SPSTask> Search(List<SPSTask> tasks, SPSSearchBy search, SPSTask temp)
+        public override void Search(SPSBox box)
         {
-            var box = temp ?? throw new ArgumentNullException(paramName: nameof(temp));
-            var list = tasks ?? throw new ArgumentNullException(paramName: nameof(tasks));
+            var msg = box ?? throw new ArgumentNullException(paramName: nameof(box));
+            var list = box.ListStrings ?? throw new ArgumentNullException(paramName: nameof(box.ListStrings));
+            var db = box.Tasks ?? throw new ArgumentNullException(paramName: nameof(box.Tasks));
 
-            List<SPSTask> output = null;
-
-            if (search == SPSSearchBy.Info)
+            if (msg.Search == SPSSearchBy.Info)
             {
-                output = new List<SPSTask>();
-                foreach (var item in list)
+                foreach (var item in db)
                 {
-                    if (item.DateTimeStartTask == box.DateTimeStartTask)
-                        output.Add(item);
+                    if (string.Compare(item.InfoAboutTask,msg.SPSTask.InfoAboutTask) == 0 
+                        || item.InfoAboutTask.Contains(msg.SPSTask.InfoAboutTask))
+                    { list.Add(item.ToString()); }
                 }
             }
 
-            return output;
+            if (list.Count == 0) { list.Add("No search result..."); }
         }
     }
 
     public abstract class SPSStrategyChange
     {
-        public abstract void Change(List<SPSTask> tasks, SPSChange todo, SPSTask temp, Guid id);
+        public abstract void Change(SPSBox box);
     }
 
     class SPSChangePriority : SPSStrategyChange
     {
-        public override void Change(List<SPSTask> tasks, SPSChange todo, SPSTask temp, Guid id)
+        public override void Change(SPSBox box)
         {
-            var box = temp ?? throw new ArgumentNullException(paramName: nameof(temp));
-            var list = tasks ?? throw new ArgumentNullException(paramName: nameof(tasks));
-            if (todo == SPSChange.Priority)
+            var msg = box ?? throw new ArgumentNullException(paramName: nameof(box));
+            var db = box.Tasks ?? throw new ArgumentNullException(paramName: nameof(box.Tasks));
+
+            if (msg.Change == SPSChange.Priority)
             {
-                for (int i = 0; i < list.Count; i++)
+                for (int i = 0; i < db.Count; i++)
                 {
-                    if (list[i].Id == id)
-                        list[i].PriorityTask = box.PriorityTask;
+                    if (db[i].Id == box.SPSTask.Id)
+                    { db[i].PriorityTask = box.SPSTask.PriorityTask; break; }
                 }
             }
         }
     }
     class SPSChangeDueDate : SPSStrategyChange
     {
-        public override void Change(List<SPSTask> tasks, SPSChange todo, SPSTask temp, Guid id)
+        public override void Change(SPSBox box)
         {
-            var box = temp ?? throw new ArgumentNullException(paramName: nameof(temp));
-            var list = tasks ?? throw new ArgumentNullException(paramName: nameof(tasks));
-            if (todo == SPSChange.DateEnd)
+            var msg = box ?? throw new ArgumentNullException(paramName: nameof(box));
+            var db = box.Tasks ?? throw new ArgumentNullException(paramName: nameof(box.Tasks));
+
+            if (msg.Change == SPSChange.DateEnd)
             {
-                for (int i = 0; i < list.Count; i++)
+                for (int i = 0; i < db.Count; i++)
                 {
-                    if (list[i].Id == id)
-                        list[i].DateTimeEndTask = box.DateTimeEndTask;
+                    if (db[i].Id == box.SPSTask.Id)
+                    { db[i].DateTimeEndTask = box.SPSTask.DateTimeEndTask; break; }
                 }
             }
         }
     }
     class SPSChangeTag : SPSStrategyChange
     {
-        public override void Change(List<SPSTask> tasks, SPSChange todo, SPSTask temp, Guid id)
+        public override void Change(SPSBox box)
         {
-            var box = temp ?? throw new ArgumentNullException(paramName: nameof(temp));
-            var list = tasks ?? throw new ArgumentNullException(paramName: nameof(tasks));
-            if (todo == SPSChange.Tag)
+            var msg = box ?? throw new ArgumentNullException(paramName: nameof(box));
+            var db = box.Tasks ?? throw new ArgumentNullException(paramName: nameof(box.Tasks));
+
+            if (msg.Change == SPSChange.Tag)
             {
-                for (int i = 0; i < list.Count; i++)
+                for (int i = 0; i < db.Count; i++)
                 {
-                    if (list[i].Id == id)
-                        list[i].TagTask = box.TagTask;
+                    if (db[i].Id == box.SPSTask.Id)
+                    { db[i].TagTask = box.SPSTask.TagTask; break; }
                 }
             }
         }

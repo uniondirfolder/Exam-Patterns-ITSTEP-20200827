@@ -9,13 +9,12 @@ namespace SimplestPlanningSystem.Service
 {
     public enum SPSServiceCode
     {
-        CreateToDoList, CreateToDoTask, SetPriority, SetDueDate, DeleteTask, Change
+        CreateToDoList, CreateToDoTask, SetPriority, SetDueDate, DeleteTask, Change, Update
     }
     public interface ISPSMediator
     {
         void SendServiceCode(SPSServiceCode code, SPSmvc smvc , SPSBox box);
     }
-
     public abstract class SPSmvc
     {
         protected ISPSMediator dispatcher;
@@ -31,6 +30,4 @@ namespace SimplestPlanningSystem.Service
 
         public abstract void Activity(SPSServiceCode code , SPSBox box);
     }
-
-
 }

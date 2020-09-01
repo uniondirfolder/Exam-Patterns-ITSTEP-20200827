@@ -14,7 +14,7 @@ using static SimplestPlanningSystem.Model.SPSCommand;
 namespace SimplestPlanningSystem.Controller
 {
 
-    public class SPSFacade : SPSmvc, ISPSFacade, ISPSObserver 
+    public sealed class SPSFacade : SPSmvc, ISPSFacade, ISPSObserver 
     {
         private SPSFile db;
 
@@ -50,9 +50,9 @@ namespace SimplestPlanningSystem.Controller
             var q = new ChangeSPSTask(db, task, id);
             q.Execute();
         }
-        public void Update(List<string> whom)
+        public void Update(SPSBox box)
         {
-            List<string> ent = whom ?? throw new ArgumentNullException(paramName: nameof(whom));
+            List<string> ent = box.ListStrings ?? throw new ArgumentNullException(paramName: nameof(box.ListStrings));
             ent = db.Context.SPSTasksToListOfStrings();
         }
 
@@ -60,6 +60,15 @@ namespace SimplestPlanningSystem.Controller
         {
             switch (code)
             {
+                case SPSServiceCode.Update:
+                    Update(box);
+                    break;
+                case SPSServiceCode.DeleteTask:
+                    DeleteTask(box.Guid);
+                    break;
+                case SPSServiceCode.Change:
+                    Change(box.SPSTask, box.Guid);
+                    break;
                 case SPSServiceCode.CreateToDoList:
                     CreateToDoList(box.FilePath);
                     break;
@@ -71,12 +80,6 @@ namespace SimplestPlanningSystem.Controller
                     break;
                 case SPSServiceCode.SetDueDate:
                     SetDueDate(box.Change, box.SPSTask, box.Guid);
-                    break;
-                case SPSServiceCode.DeleteTask:
-                    DeleteTask(box.Guid);
-                    break;
-                case SPSServiceCode.Change:
-                    Change(box.SPSTask, box.Guid);
                     break;
                 default:
                     break;

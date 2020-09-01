@@ -65,6 +65,11 @@ namespace SimplestPlanningSystem.Model
             this.DateTimeEndTask = DateTimeEndTask;
         }
 
+        public override string ToString()
+        {
+            return ($"{InfoAboutTask} | {StatusTask} | " +
+                    $"{TagTask} | {PriorityTask} | {DateTimeStartTask} | {DateTimeEndTask}");
+        }
         public void Dispose()
         {
             Dispose(true);

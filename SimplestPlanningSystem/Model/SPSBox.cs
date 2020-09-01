@@ -11,14 +11,14 @@ namespace SimplestPlanningSystem.Model
         private bool disposedValue;
 
         public string FilePath { get; set; } = "nothing";
-        public Guid Guid { get; set; }
         public DateTime DateTime { get; set; } = DateTime.UtcNow;
 
-        public List<SPSTask> Tasks;
+        public List<SPSTask> Tasks = null;
         public SPSTask SPSTask { get; set; } = new SPSTask();
         public SPSSearchBy Search { get; set; } = SPSSearchBy.Tag;
         public SPSChange Change { get; set; } = SPSChange.Tag;
 
+        public List<string> ListStrings = null;
 
         protected virtual void Dispose(bool disposing)
         {

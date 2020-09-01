@@ -32,16 +32,16 @@ namespace SimplestPlanningSystem.Model
         }
         public class CreateSPSTask : Icommand
         {
-            private SPSTask task;
-            private SPSFile db;
-            public CreateSPSTask(SPSFile db, SPSTask task)
+            private SPSBox box;
+            public CreateSPSTask(SPSBox box)
             {
-                this.task = task ?? throw new ArgumentNullException(paramName: nameof(task));
-                this.db = db ?? throw new ArgumentNullException(paramName: nameof(db));
+                this.box = box ?? throw new ArgumentNullException(paramName: nameof(box));
+                if (this.box.Tasks == null) throw new ArgumentNullException(paramName: nameof(this.box.Tasks));
+                if (this.box.SPSTask == null) throw new ArgumentNullException(paramName: nameof(this.box.SPSTask));
             }
             public void Execute()
             {
-                db.Context.Add(task);
+                box.Tasks.Add(box.SPSTask);
             }
         }
         public class ChangeSPSTask : Icommand
@@ -104,6 +104,22 @@ namespace SimplestPlanningSystem.Model
                 this.task = task ?? throw new ArgumentNullException(paramName: nameof(task));
                 this.change = change;
                 this.guid = guid;
+                this.db = db ?? throw new ArgumentNullException(paramName: nameof(db));
+            }
+            public void Execute()
+            {
+                var c = new SPSChangeDueDate();
+                c.Change(db.Context, change, task, guid);
+            }
+        }
+        public class UpdateListTasks : Icommand
+        {
+            private SPSBox box;
+            private SPSFile db;
+            public UpdateListTasks(SPSFile db, SPSBox box)
+            {
+                this.box = box ?? throw new ArgumentNullException(paramName: nameof(box));
+                this.box = box;
                 this.db = db ?? throw new ArgumentNullException(paramName: nameof(db));
             }
             public void Execute()

@@ -9,30 +9,33 @@ namespace SimplestPlanningSystem.Model
 {
     static class ListExtensionMethods
     {
-        static public void SPSChangeItem(this List<SPSTask> list, Guid IdItem, SPSTask who) 
+        static public void SPSChangeItem(this List<SPSTask> list, SPSBox box) 
         {
-            var task = who ?? throw new ArgumentNullException(paramName: nameof(who));
+            var _box = box ?? throw new ArgumentNullException(paramName: nameof(box));
+            var _item = _box.SPSTask ?? throw new ArgumentNullException(paramName: nameof(_box.SPSTask));
             var list_temp = list ?? throw new ArgumentNullException(paramName: nameof(list));
-            bool remove = false;
             for (int i = 0; i < list_temp.Count; i++)
             {
-                if (list_temp[i].Id == IdItem)
-                { list_temp.RemoveAt(i); }
-                remove = true;
+                if (list_temp[i].Id == _box.SPSTask.Id) 
+                {
+                    list_temp.RemoveAt(i);
+                    list_temp.Add(box.SPSTask);
+                    break;
+                }
             }
-            if (remove)
-                list_temp.Add(who);
         }
 
-        static public void SPSDeleteItem(this List<SPSTask> list, Guid IdItem)
+        static public void SPSDeleteItem(this List<SPSTask> list, SPSBox box)
         {
             var list_temp = list ?? throw new ArgumentNullException(paramName: nameof(list));
-            
+            var _box = box ?? throw new ArgumentNullException(paramName: nameof(box));
             for (int i = 0; i < list_temp.Count; i++)
             {
-                if (list_temp[i].Id == IdItem)
-                { list_temp.RemoveAt(i); }
- 
+                if (list_temp[i].Id == _box.SPSTask.Id)
+                {
+                    list_temp.RemoveAt(i);
+                    break;
+                }
             }
         }
 
@@ -48,19 +51,31 @@ namespace SimplestPlanningSystem.Model
 
             return output;
         }
-        static public SPSTask ConvertStringToSPSTask(this string recordSPSTask, List<SPSTask> db)
+        static public SPSTask ConvertStringToSPSTask(this string recordSPSTask, SPSBox box)
         {
-            var task = recordSPSTask ?? throw new ArgumentNullException(paramName: nameof(recordSPSTask));
-            var list = task.Trim().Split('|').ToList();
-            int i;
-            int.TryParse(list[0], out i);
+            var task_str = recordSPSTask ?? throw new ArgumentNullException(paramName: nameof(recordSPSTask));
+            var _box = box ?? throw new ArgumentNullException(paramName: nameof(box));
+            var _db = box.Tasks ?? throw new ArgumentNullException(paramName: nameof(box.Tasks));
+            var list = task_str.Trim().Split('|').ToList();
+            int index;
+            int.TryParse(list[0], out index);
+            if (index < 0 || index > _db.Count - 1) throw new IndexOutOfRangeException("Incorrect index");
             return new SPSTask(
-                db[i].StatusTask,
-                db[i].PriorityTask, 
-                db[i].TagTask,
-                db[i].InfoAboutTask,
-                db[i].DateTimeStartTask,
-                db[i].DateTimeEndTask);
+                _db[index].StatusTask,
+                _db[index].PriorityTask, 
+                _db[index].TagTask,
+                _db[index].InfoAboutTask,
+                _db[index].DateTimeStartTask,
+                _db[index].DateTimeEndTask);
+        }
+        static public Guid GetGiudByIndex(this int index, List<SPSTask> db)
+        {
+            var _db = db ?? throw new ArgumentNullException(paramName: nameof(db));
+            if (index < 0 || index > db.Count - 1) throw new IndexOutOfRangeException("Incorrect index");
+            Guid output = new Guid();
+            output = db[index].Id;
+
+            return output;
         }
     }
 }
