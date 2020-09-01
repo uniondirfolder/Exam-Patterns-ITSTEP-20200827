@@ -55,7 +55,7 @@ namespace SimplestPlanningSystem.Model
         {
             var task_str = recordSPSTask ?? throw new ArgumentNullException(paramName: nameof(recordSPSTask));
             var _box = box ?? throw new ArgumentNullException(paramName: nameof(box));
-            var _db = box.Tasks ?? throw new ArgumentNullException(paramName: nameof(box.Tasks));
+            var _db = _box.Tasks ?? throw new ArgumentNullException(paramName: nameof(_box.Tasks));
             var list = task_str.Trim().Split('|').ToList();
             int index;
             int.TryParse(list[0], out index);
@@ -68,12 +68,13 @@ namespace SimplestPlanningSystem.Model
                 _db[index].DateTimeStartTask,
                 _db[index].DateTimeEndTask);
         }
-        static public Guid GetGiudByIndex(this int index, List<SPSTask> db)
+        static public Guid GetGiudByIndex(this int index, SPSBox box)
         {
-            var _db = db ?? throw new ArgumentNullException(paramName: nameof(db));
-            if (index < 0 || index > db.Count - 1) throw new IndexOutOfRangeException("Incorrect index");
+            var _box = box ?? throw new ArgumentNullException(paramName: nameof(box));
+            var _db = _box.Tasks ?? throw new ArgumentNullException(paramName: nameof(_box.Tasks));
+            if (index < 0 || index > _db.Count - 1) throw new IndexOutOfRangeException("Incorrect index");
             Guid output = new Guid();
-            output = db[index].Id;
+            output = _db[index].Id;
 
             return output;
         }
