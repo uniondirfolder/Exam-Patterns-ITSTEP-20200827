@@ -33,10 +33,8 @@ namespace SimplestPlanningSystem.Model
     public class SPSTask: IDisposable
     {
         [NonSerialized]
-        readonly Guid _id = new Guid();
-        [NonSerialized]
         private bool disposed;
-        public Guid Id{ get { return _id; } }
+        public Guid Id { get; set; } = new Guid();
         private Status _status = Status.Expired;
         public Status StatusTask { get { return _status; } }
         public Priority PriorityTask { get; set; } = Priority.Normal;
@@ -47,6 +45,7 @@ namespace SimplestPlanningSystem.Model
 
         public SPSTask() { }
         public SPSTask(
+            Guid Id,
             Status status,
             Priority PriorityTask,
             Tag TagTask,
@@ -63,6 +62,7 @@ namespace SimplestPlanningSystem.Model
             this.InfoAboutTask = InfoAboutTask ?? throw new ArgumentNullException(paramName: nameof(InfoAboutTask));
             this.DateTimeStartTask = DateTimeStartTask;
             this.DateTimeEndTask = DateTimeEndTask;
+            this.Id = Id;
         }
 
         public override string ToString()

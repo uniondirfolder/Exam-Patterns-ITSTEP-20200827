@@ -122,5 +122,19 @@ namespace SimplestPlanningSystem.Model
                 }
             }
         }
+        public class ChangeSPSTaskTag : Icommand
+        {
+            private SPSBox box;
+            public ChangeSPSTaskTag(SPSBox box)
+            {
+                this.box = box ?? throw new ArgumentNullException(paramName: nameof(box));
+                if (this.box.Tasks == null) throw new ArgumentNullException(paramName: nameof(this.box.Tasks));
+            }
+            public void Execute()
+            {
+                var c = new SPSChangeTag();
+                c.Change(box);
+            }
+        }
     }
 }

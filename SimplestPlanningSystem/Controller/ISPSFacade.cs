@@ -11,5 +11,6 @@ namespace SimplestPlanningSystem.Controller
         void DeleteTask(SPSBox box);
         void SetDueDate(SPSBox box);
         void SetPriority(SPSBox box);
+        void SetTag(SPSBox box);
     }
 }

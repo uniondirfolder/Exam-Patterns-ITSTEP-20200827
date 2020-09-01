@@ -59,6 +59,7 @@ namespace SimplestPlanningSystem.Model
             int.TryParse(list[0], out index);
             if (index < 0 || index > _db.Count - 1) throw new IndexOutOfRangeException("Incorrect index");
             return new SPSTask(
+                _db[index].Id,
                 _db[index].StatusTask,
                 _db[index].PriorityTask, 
                 _db[index].TagTask,
@@ -76,11 +77,12 @@ namespace SimplestPlanningSystem.Model
 
             return output;
         }
-        static public SPSTask GetCopyById(this SPSBox box, int index) 
+        static public SPSTask GetCopyByIndex(this SPSBox box, int index) 
         {
             var _box = box ?? throw new ArgumentNullException(paramName: nameof(box));
             var _db = _box.Tasks ?? throw new ArgumentNullException(paramName: nameof(_box.Tasks));
             return new SPSTask(
+                _db[index].Id,
                 _db[index].StatusTask,
                 _db[index].PriorityTask,
                 _db[index].TagTask,

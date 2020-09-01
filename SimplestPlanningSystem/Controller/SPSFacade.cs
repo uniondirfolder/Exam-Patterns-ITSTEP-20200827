@@ -39,6 +39,11 @@ namespace SimplestPlanningSystem.Controller
             var q = new ChangeSPSTaskDueDate(box);
             q.Execute();
         }
+        public void SetTag(SPSBox box)
+        {
+            var q = new ChangeSPSTaskTag(box);
+            q.Execute();
+        }
         public void DeleteTask(SPSBox box)
         {
             var q = new DeleteSPSTask(box);
@@ -60,7 +65,7 @@ namespace SimplestPlanningSystem.Controller
         }
         private void Fill(SPSBox box) 
         {
-            box.SPSTask = box.GetCopyById(box.index);
+            box.SPSTask = box.GetCopyByIndex(box.index);
         } 
         public override void Activity(SPSServiceCode code, SPSBox box )
         {
@@ -91,6 +96,9 @@ namespace SimplestPlanningSystem.Controller
                     break;
                 case SPSServiceCode.Fill:
                     Fill(box);
+                    break;
+                case SPSServiceCode.SetTag:
+                    SetTag(box);
                     break;
                 default:
                     break;
