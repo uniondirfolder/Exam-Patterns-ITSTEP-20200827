@@ -54,5 +54,15 @@ namespace SimplestPlanningSystem.View
         {
             throw new NotImplementedException();
         }
+
+        public void SetTag(SPSBox box)
+        {
+            dispatcher.SendServiceCode(SPSServiceCode.SetTag, this, box);
+        }
+
+        public void SetInfo(SPSBox box)
+        {
+            dispatcher.SendServiceCode(SPSServiceCode.SetInfo, this, box);
+        }
     }
 }

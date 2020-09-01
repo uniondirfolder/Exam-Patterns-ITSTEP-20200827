@@ -120,8 +120,8 @@ namespace SimplestPlanningSystem.UserInterface
                 {                   
                     listView.Items.Add(box.SPSTask.ToString());
                     dispatcher.SendServiceCode(SPSServiceCode.CreateToDoTask, dispatcher.GetView(), box);
-                    box.Dispose();
-                    Close();
+                    
+                    
                 }
                 else
                 {
@@ -134,7 +134,7 @@ namespace SimplestPlanningSystem.UserInterface
                             dispatcher.SendServiceCode(SPSServiceCode.SetTag, dispatcher.GetView(), box);
                             break;
                         case SPSChange.Info:
-                            dispatcher.SendServiceCode(SPSServiceCode., dispatcher.GetView(), box);
+                            dispatcher.SendServiceCode(SPSServiceCode.SetInfo, dispatcher.GetView(), box);
                             break;
                         case SPSChange.DateEnd:
                             dispatcher.SendServiceCode(SPSServiceCode.SetDueDate, dispatcher.GetView(), box);
@@ -142,8 +142,12 @@ namespace SimplestPlanningSystem.UserInterface
                         default:
                             break;
                     }
+                    box.ListView = listView;
+                    dispatcher.SendServiceCode(SPSServiceCode.Update, dispatcher.GetView(), box);
+                    
                 }
-                
+                box.Dispose();
+                Close();
             }
             else
             {

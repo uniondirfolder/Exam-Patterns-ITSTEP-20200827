@@ -52,12 +52,6 @@
     <Compile Include="Controller\ISPSFacade.cs" />
     <Compile Include="Controller\ISPSObserver.cs" />
     <Compile Include="Controller\SPSFacade.cs" />
-    <Compile Include="UserInterface\FormChange.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UserInterface\FormChange.Designer.cs">
-      <DependentUpon>FormChange.cs</DependentUpon>
-    </Compile>
     <Compile Include="UserInterface\FormNewTask.cs">
       <SubType>Form</SubType>
     </Compile>
