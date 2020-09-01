@@ -20,7 +20,7 @@ namespace SimplestPlanningSystem.Model
         bool Close();
     }
 
-    class FileFactoryMethod
+    class SPSFileFactoryMethod
     {
         public abstract class FileAbstractFactory 
         {

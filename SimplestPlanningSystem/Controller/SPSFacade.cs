@@ -8,7 +8,7 @@ using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static SimplestPlanningSystem.Model.FileFactoryMethod;
+using static SimplestPlanningSystem.Model.SPSFileFactoryMethod;
 using static SimplestPlanningSystem.Model.SPSCommand;
 
 namespace SimplestPlanningSystem.Controller

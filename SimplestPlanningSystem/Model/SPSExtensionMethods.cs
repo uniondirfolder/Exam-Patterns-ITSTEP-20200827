@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SimplestPlanningSystem.Model
 {
-    static class ListExtensionMethods
+    static class SPSExtensionMethods
     {
         static public void SPSChangeItem(this List<SPSTask> list, SPSBox box) 
         {
@@ -38,7 +38,6 @@ namespace SimplestPlanningSystem.Model
                 }
             }
         }
-
         static public List<string>SPSTasksToListOfStrings(this List<SPSTask> list) 
         {
             List<string> output = new List<string>();

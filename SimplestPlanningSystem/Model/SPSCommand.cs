@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static SimplestPlanningSystem.Model.FileFactoryMethod;
+using static SimplestPlanningSystem.Model.SPSFileFactoryMethod;
 
 namespace SimplestPlanningSystem.Model
 {

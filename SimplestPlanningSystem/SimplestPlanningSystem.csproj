@@ -64,8 +64,8 @@
     <Compile Include="UserInterface\Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\FileFactoryMethod.cs" />
-    <Compile Include="Model\ListExtensionMethods.cs" />
+    <Compile Include="Model\SPSFileFactoryMethod.cs" />
+    <Compile Include="Model\SPSExtensionMethods.cs" />
     <Compile Include="Model\SPSCommand.cs" />
     <Compile Include="Model\SPSStrategy.cs" />
     <Compile Include="Model\SPSTask.cs" />
