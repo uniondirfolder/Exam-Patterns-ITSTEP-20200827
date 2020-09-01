@@ -1,4 +1,6 @@
-﻿using SimplestPlanningSystem.Service;
+﻿using SimplestPlanningSystem.Model;
+using SimplestPlanningSystem.Service;
+using SimplestPlanningSystem.UserInterface;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,9 +33,10 @@ namespace SimplestPlanningSystem
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnCreateNewTask_Click(object sender, EventArgs e)
         {
-
+            var frm = new FormNewTask(Dispatcher, listView);
+            frm.Show();
         }
     }
 }

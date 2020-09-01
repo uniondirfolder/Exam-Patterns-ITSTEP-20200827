@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using static SimplestPlanningSystem.Model.SPSFileFactoryMethod;
 
 namespace SimplestPlanningSystem.Model
@@ -38,8 +39,11 @@ namespace SimplestPlanningSystem.Model
                 disposed = true;
             }
         }
-        ~SPSTask()
+        ~SPSBox()
         {
+            Tasks = null;
+            ListStrings = null;
+
             Dispose(false);
         }
     }

@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textView = new System.Windows.Forms.TextBox();
             this.btnCreateNewList = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnCreateNewTask = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -39,16 +38,8 @@
             this.button8 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
+            this.listView = new System.Windows.Forms.ListView();
             this.SuspendLayout();
-            // 
-            // textView
-            // 
-            this.textView.Location = new System.Drawing.Point(12, 12);
-            this.textView.Multiline = true;
-            this.textView.Name = "textView";
-            this.textView.ReadOnly = true;
-            this.textView.Size = new System.Drawing.Size(386, 477);
-            this.textView.TabIndex = 0;
             // 
             // btnCreateNewList
             // 
@@ -60,15 +51,15 @@
             this.btnCreateNewList.UseVisualStyleBackColor = true;
             this.btnCreateNewList.Click += new System.EventHandler(this.btnCreateNewList_Click);
             // 
-            // button2
+            // btnCreateNewTask
             // 
-            this.button2.Location = new System.Drawing.Point(440, 78);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(142, 28);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Create New Task";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnCreateNewTask.Location = new System.Drawing.Point(440, 78);
+            this.btnCreateNewTask.Name = "btnCreateNewTask";
+            this.btnCreateNewTask.Size = new System.Drawing.Size(142, 28);
+            this.btnCreateNewTask.TabIndex = 1;
+            this.btnCreateNewTask.Text = "Create New Task";
+            this.btnCreateNewTask.UseVisualStyleBackColor = true;
+            this.btnCreateNewTask.Click += new System.EventHandler(this.btnCreateNewTask_Click);
             // 
             // button3
             // 
@@ -142,11 +133,22 @@
             this.button10.Text = "Search";
             this.button10.UseVisualStyleBackColor = true;
             // 
+            // listView
+            // 
+            this.listView.HideSelection = false;
+            this.listView.Location = new System.Drawing.Point(35, 36);
+            this.listView.Name = "listView";
+            this.listView.Size = new System.Drawing.Size(367, 441);
+            this.listView.TabIndex = 2;
+            this.listView.UseCompatibleStateImageBehavior = false;
+            this.listView.View = System.Windows.Forms.View.List;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(669, 501);
+            this.Controls.Add(this.listView);
             this.Controls.Add(this.button10);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.button8);
@@ -155,22 +157,18 @@
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnCreateNewTask);
             this.Controls.Add(this.btnCreateNewList);
-            this.Controls.Add(this.textView);
             this.Name = "Main";
             this.Text = "Simple Planning System - test model";
             this.Load += new System.EventHandler(this.Main_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox textView;
         private System.Windows.Forms.Button btnCreateNewList;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnCreateNewTask;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
@@ -179,6 +177,7 @@
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button10;
+        private System.Windows.Forms.ListView listView;
     }
 }
 

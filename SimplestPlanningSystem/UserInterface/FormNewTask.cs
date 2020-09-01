@@ -15,10 +15,12 @@ namespace SimplestPlanningSystem.UserInterface
 {
     public partial class FormNewTask : Form
     {
+        private ListView listView;
         private SPSDispatcher dispatcher;
-        public FormNewTask(SPSDispatcher dispatcher)
+        public FormNewTask(SPSDispatcher dispatcher, ListView listView)
         {
             this.dispatcher = dispatcher;
+            this.listView = listView;
             InitializeComponent();
         }
 
@@ -70,8 +72,10 @@ namespace SimplestPlanningSystem.UserInterface
                         break;
                 }
                 box.SPSTask.InfoAboutTask = tbxTextInfo.Text;
+                listView.Items.Add(box.SPSTask.ToString());
                 dispatcher.SendServiceCode(SPSServiceCode.CreateToDoTask, dispatcher.GetView(), box);
                 box.Dispose();
+                Close();
             }
             else 
             {
