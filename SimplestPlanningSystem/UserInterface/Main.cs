@@ -31,7 +31,11 @@ namespace SimplestPlanningSystem
 
         private void btnCreateNewList_Click(object sender, EventArgs e)
         {
-
+            var box = new SPSBox();
+            box.FilePath = "test2.sps";
+            Dispatcher.SendServiceCode(SPSServiceCode.CreateToDoList, Dispatcher.GetView(), box);
+            listView.Clear();
+            box.Dispose();
         }
 
         private void btnCreateNewTask_Click(object sender, EventArgs e)
@@ -42,26 +46,46 @@ namespace SimplestPlanningSystem
 
         private void btnSetDateDue_Click(object sender, EventArgs e)
         {
-
+            if (listView.SelectedItems.Count > 0)
+            {
+                var index = listView.Items.IndexOf(listView.SelectedItems[0]);
+                var frm = new FormNewTask(Dispatcher, listView, SPSChange.DateEnd, index);
+                frm.Show();
+            }
         }
 
         private void btnDeleteTask_Click(object sender, EventArgs e)
         {
-
+            if (listView.SelectedItems.Count > 0)
+            {
+                var index = listView.Items.IndexOf(listView.SelectedItems[0]);
+                var box = new SPSBox();
+                box.index = index;
+                Dispatcher.SendServiceCode(SPSServiceCode.DeleteTask, Dispatcher.GetView(), box);
+                box.ListView = listView;
+                Dispatcher.SendServiceCode(SPSServiceCode.Update, Dispatcher.GetView(), box);
+                box.Dispose();
+            }
         }
 
         private void btnChangeTask_Click(object sender, EventArgs e)
         {
             if (listView.SelectedItems.Count > 0)
             {
-                var index = listView.Items.IndexOf(listView.SelectedItems[0]);
-                var frm = new FormChange(Dispatcher, index, SPSChange );
+                var index= listView.Items.IndexOf(listView.SelectedItems[0]);
+                var frm = new FormNewTask(Dispatcher, listView,SPSChange.Task,index);
+                frm.Show();
             }
         }
 
         private void btnSetTag_Click(object sender, EventArgs e)
         {
-
+            if (listView.SelectedItems.Count > 0)
+            {
+                var index = listView.Items.IndexOf(listView.SelectedItems[0]);
+                var frm = new FormNewTask(Dispatcher, listView, SPSChange.Tag, index);
+                frm.Show();
+            }
         }
 
         private void btnLoadFromfile_Click(object sender, EventArgs e)

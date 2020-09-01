@@ -20,7 +20,7 @@ namespace SimplestPlanningSystem.UserInterface
         private SPSChange change;
         private int index;
         SPSBox box = new SPSBox();
-        public FormNewTask(SPSDispatcher dispatcher, ListView listView, SPSChange change, int index)
+        public FormNewTask(SPSDispatcher dispatcher, ListView listView, SPSChange change = SPSChange.Status, int index=-1)
         {
             this.dispatcher = dispatcher;
             this.listView = listView;
@@ -35,35 +35,40 @@ namespace SimplestPlanningSystem.UserInterface
                 btnAddTask.Text = "Save";
                 box.index = index;
                 dispatcher.SendServiceCode(SPSServiceCode.Fill, dispatcher.GetView(), box);
+
                 cmbPriority.SelectedIndex = (int)box.SPSTask.PriorityTask;
                 cmbTag.SelectedIndex = (int)box.SPSTask.TagTask;
                 tbxTextInfo.Text = box.SPSTask.InfoAboutTask;
                 dateTimePickerEnd.Value = box.SPSTask.DateTimeEndTask;
                 dateTimePickerStart.Value = box.SPSTask.DateTimeStartTask;
-                cmbPriority.IsAccessible = false;
-                cmbTag.IsAccessible = false;
-                tbxTextInfo.ReadOnly = true;
-                dateTimePickerEnd.IsAccessible = false;
-                dateTimePickerStart.IsAccessible = false;
-                switch (change)
-                {
-                    case SPSChange.Priority:
-                        cmbPriority.IsAccessible = true;
-                        break;
-                    case SPSChange.Tag:
-                        cmbTag.IsAccessible = true;
-                        break;
-                    case SPSChange.Info:
-                        tbxTextInfo.ReadOnly = false;
-                        break;
-                    case SPSChange.DateStart:
-                        dateTimePickerStart.IsAccessible = true;
-                        break;
-                    case SPSChange.DateEnd:
-                        dateTimePickerEnd.IsAccessible = true;
-                        break;
-                    default:
-                        break;
+
+                if (change != SPSChange.Task)
+                {                    
+                    cmbPriority.IsAccessible = false;
+                    cmbTag.IsAccessible = false;
+                    tbxTextInfo.ReadOnly = true;
+                    dateTimePickerEnd.IsAccessible = false;
+                    dateTimePickerStart.IsAccessible = false;
+                    switch (change)
+                    {
+                        case SPSChange.Priority:
+                            cmbPriority.IsAccessible = true;
+                            break;
+                        case SPSChange.Tag:
+                            cmbTag.IsAccessible = true;
+                            break;
+                        case SPSChange.Info:
+                            tbxTextInfo.ReadOnly = false;
+                            break;
+                        case SPSChange.DateStart:
+                            dateTimePickerStart.IsAccessible = true;
+                            break;
+                        case SPSChange.DateEnd:
+                            dateTimePickerEnd.IsAccessible = true;
+                            break;
+                        default:
+                            break;
+                    }
                 }
 
             }
@@ -119,9 +124,7 @@ namespace SimplestPlanningSystem.UserInterface
                 if (index == -1)
                 {                   
                     listView.Items.Add(box.SPSTask.ToString());
-                    dispatcher.SendServiceCode(SPSServiceCode.CreateToDoTask, dispatcher.GetView(), box);
-                    
-                    
+                    dispatcher.SendServiceCode(SPSServiceCode.CreateToDoTask, dispatcher.GetView(), box); 
                 }
                 else
                 {
@@ -138,6 +141,9 @@ namespace SimplestPlanningSystem.UserInterface
                             break;
                         case SPSChange.DateEnd:
                             dispatcher.SendServiceCode(SPSServiceCode.SetDueDate, dispatcher.GetView(), box);
+                            break;
+                        case SPSChange.Task:
+                            dispatcher.SendServiceCode(SPSServiceCode.Change, dispatcher.GetView(), box);
                             break;
                         default:
                             break;

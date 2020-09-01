@@ -58,6 +58,12 @@
     <Compile Include="UserInterface\FormNewTask.Designer.cs">
       <DependentUpon>FormNewTask.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserInterface\FormSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserInterface\FormSearch.Designer.cs">
+      <DependentUpon>FormSearch.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserInterface\Main.cs">
       <SubType>Form</SubType>
     </Compile>

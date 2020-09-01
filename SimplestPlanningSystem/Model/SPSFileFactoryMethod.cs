@@ -42,7 +42,7 @@ namespace SimplestPlanningSystem.Model
         {
             [NonSerialized]
             string file;
-            bool change = false;
+            //bool change = false;
             private List<SPSTask> db = new List<SPSTask>();
 
             public List<SPSTask> Context { get { return db; } }
@@ -117,9 +117,9 @@ namespace SimplestPlanningSystem.Model
             }
             public SPSFile(string path)
             {
-                this.file = file ?? throw new ArgumentNullException(paramName: nameof(file));
+                this.file = path ?? throw new ArgumentNullException(paramName: nameof(path));
 
-                if (Path.GetExtension(file) != FileExtension.sps.ToString())
+                if (Path.GetExtension(file) != "."+FileExtension.sps.ToString())
                     throw new Exception("Incorrect file extension!");
 
                 if (!File.Exists(file))
@@ -128,7 +128,7 @@ namespace SimplestPlanningSystem.Model
                     f.Close();
                 }
             }
-            public void SetContext(List<SPSTask> tasks) { tasks = this.db; }
+            public void SetContext(ref List<SPSTask> tasks) { tasks = this.db; }
         }
 
         public class FileFactory

@@ -52,7 +52,9 @@ namespace SimplestPlanningSystem.Controller
         public void DeleteTask(SPSBox box)
         {
             var q = new DeleteSPSTask(box);
+            box.SPSTask.Id = box.GetGuidByIndex(box.index);
             q.Execute();
+
         }
         public void Change(SPSBox box)
         {
@@ -64,9 +66,9 @@ namespace SimplestPlanningSystem.Controller
             var q = new UpdateListTasks(box);
             q.Execute();
         }
-        public void SetContext(List<SPSTask> tasks) 
+        public void SetContext(ref List<SPSTask> tasks) 
         {
-            db.SetContext(tasks);
+            db.SetContext(ref tasks);
         }
         private void Fill(SPSBox box) 
         {

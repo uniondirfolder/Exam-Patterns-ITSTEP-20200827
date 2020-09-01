@@ -26,7 +26,7 @@ namespace SimplestPlanningSystem.Model
     }
     public enum SPSChange
     {
-        Status, Priority, Tag, Info, DateStart, DateEnd
+        Status, Priority, Tag, Info, DateStart, DateEnd, Task
     }
 
     [Serializable]

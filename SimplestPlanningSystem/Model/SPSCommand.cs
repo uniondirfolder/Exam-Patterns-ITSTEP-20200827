@@ -146,7 +146,7 @@ namespace SimplestPlanningSystem.Model
             }
             public void Execute()
             {
-                var c = new SPSChangeTag();
+                var c = new SPSChangeInfo();
                 c.Change(box);
             }
         }
