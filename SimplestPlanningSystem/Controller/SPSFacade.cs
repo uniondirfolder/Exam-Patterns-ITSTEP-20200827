@@ -84,31 +84,31 @@ namespace SimplestPlanningSystem.Controller
                     Update(box);
                     break;
                 case SPSServiceCode.DeleteTask:
-                    DeleteTask(box);
+                    DeleteTask(box); db.Write();
                     break;
                 case SPSServiceCode.Change:
-                    Change(box);
+                    Change(box); db.Write();
                     break;
                 case SPSServiceCode.CreateToDoList:
                     CreateToDoList(box.FilePath);
                     break;
                 case SPSServiceCode.CreateToDoTask:
-                    CreateToDoTask(box);
+                    CreateToDoTask(box); db.Write();
                     break;
                 case SPSServiceCode.SetPriority:
-                    SetPriority(box);
+                    SetPriority(box); db.Write();
                     break;
                 case SPSServiceCode.SetDueDate:
-                    SetDueDate(box);
+                    SetDueDate(box); db.Write();
                     break;
                 case SPSServiceCode.Fill:
                     Fill(box);
                     break;
                 case SPSServiceCode.SetTag:
-                    SetTag(box);
+                    SetTag(box); db.Write();
                     break;
                 case SPSServiceCode.SetInfo:
-                    SetInfo(box);
+                    SetInfo(box); db.Write();
                     break;
                 default:
                     break;

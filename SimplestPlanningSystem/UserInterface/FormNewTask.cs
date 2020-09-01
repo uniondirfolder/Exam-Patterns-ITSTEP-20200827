@@ -131,18 +131,23 @@ namespace SimplestPlanningSystem.UserInterface
                     switch (change)
                     {
                         case SPSChange.Priority:
+                            box.Change = SPSChange.Priority;
                             dispatcher.SendServiceCode(SPSServiceCode.SetPriority, dispatcher.GetView(), box);
                             break;
                         case SPSChange.Tag:
+                            box.Change = SPSChange.Tag;
                             dispatcher.SendServiceCode(SPSServiceCode.SetTag, dispatcher.GetView(), box);
                             break;
                         case SPSChange.Info:
+                            box.Change = SPSChange.Info;
                             dispatcher.SendServiceCode(SPSServiceCode.SetInfo, dispatcher.GetView(), box);
                             break;
                         case SPSChange.DateEnd:
+                            box.Change = SPSChange.DateEnd;
                             dispatcher.SendServiceCode(SPSServiceCode.SetDueDate, dispatcher.GetView(), box);
                             break;
                         case SPSChange.Task:
+                            box.Change = SPSChange.Task;
                             dispatcher.SendServiceCode(SPSServiceCode.Change, dispatcher.GetView(), box);
                             break;
                         default:

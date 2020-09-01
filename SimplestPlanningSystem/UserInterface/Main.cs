@@ -22,6 +22,10 @@ namespace SimplestPlanningSystem
             Dispatcher = dispatcher;
 
             InitializeComponent();
+            var box = new SPSBox();
+            box.ListView = listView;
+            Dispatcher.SendServiceCode(SPSServiceCode.Update, dispatcher.GetView(), box);
+            box.Dispose();
         }
 
         private void Main_Load(object sender, EventArgs e)
@@ -136,6 +140,11 @@ namespace SimplestPlanningSystem
         private void btnSearch_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Main_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            
         }
     }
 }

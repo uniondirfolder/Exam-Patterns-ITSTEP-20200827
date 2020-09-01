@@ -66,7 +66,7 @@ namespace SimplestPlanningSystem.Model
                 var len = new FileInfo(file);
                 if (len.Length != 0)
                 {
-                    if (Path.GetExtension(file) == FileExtension.sps.ToString())
+                    if (Path.GetExtension(file) == "."+FileExtension.sps.ToString())
                     {
                         BinaryFormatter formatter = new BinaryFormatter();
                         using (FileStream fs = new FileStream(file, FileMode.OpenOrCreate))
@@ -126,6 +126,10 @@ namespace SimplestPlanningSystem.Model
                 {
                     var f = File.Create(file);
                     f.Close();
+                }
+                else 
+                {
+                    Read();
                 }
             }
             public void SetContext(ref List<SPSTask> tasks) { tasks = this.db; }

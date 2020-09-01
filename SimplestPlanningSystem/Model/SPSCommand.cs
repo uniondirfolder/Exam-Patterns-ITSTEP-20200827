@@ -23,7 +23,8 @@ namespace SimplestPlanningSystem.Model
             public CreateSPSdb(SPSFile db, string path) 
             {
                 this.path = path ?? throw new ArgumentNullException(paramName: nameof(path));
-                this.db = db ?? throw new ArgumentNullException(paramName: nameof(db));
+                if(db==null) throw new ArgumentNullException(paramName: nameof(db));
+                this.db = db;
             }
             public void Execute()
             {
@@ -35,9 +36,10 @@ namespace SimplestPlanningSystem.Model
             private SPSBox box;
             public CreateSPSTask(SPSBox box)
             {
-                this.box = box ?? throw new ArgumentNullException(paramName: nameof(box));
-                if (this.box.Tasks == null) throw new ArgumentNullException(paramName: nameof(this.box.Tasks));
+                if(box==null)throw new ArgumentNullException(paramName: nameof(box));
+                if (box.Tasks == null) throw new ArgumentNullException(paramName: nameof(box.Tasks));
                 if (this.box.SPSTask == null) throw new ArgumentNullException(paramName: nameof(this.box.SPSTask));
+                this.box = box;
             }
             public void Execute()
             {
@@ -49,8 +51,9 @@ namespace SimplestPlanningSystem.Model
             private SPSBox box;
             public ChangeSPSTask(SPSBox box)
             {
-                this.box = box ?? throw new ArgumentNullException(paramName: nameof(box));
-                if (this.box.Tasks==null) throw new ArgumentNullException(paramName: nameof(this.box.Tasks));
+                if(box==null)throw new ArgumentNullException(paramName: nameof(box));
+                if (box.Tasks==null) throw new ArgumentNullException(paramName: nameof(box.Tasks));
+                this.box = box;
             }
             public void Execute()
             {
@@ -62,8 +65,9 @@ namespace SimplestPlanningSystem.Model
             private SPSBox box;
             public DeleteSPSTask(SPSBox box)
             {
-                this.box = box ?? throw new ArgumentNullException(paramName: nameof(box));
-                if (this.box.Tasks == null) throw new ArgumentNullException(paramName: nameof(this.box.Tasks));
+                if(box==null)throw new ArgumentNullException(paramName: nameof(box));
+                if (box.Tasks == null) throw new ArgumentNullException(paramName: nameof(box.Tasks));
+                this.box = box;
             }
             public void Execute()
             {
@@ -75,8 +79,9 @@ namespace SimplestPlanningSystem.Model
             private SPSBox box;
             public ChangeSPSTaskPriority(SPSBox box)
             {
-                this.box = box ?? throw new ArgumentNullException(paramName: nameof(box));
-                if (this.box.Tasks == null) throw new ArgumentNullException(paramName: nameof(this.box.Tasks));
+                if(box==null)throw new ArgumentNullException(paramName: nameof(box));
+                if (box.Tasks == null) throw new ArgumentNullException(paramName: nameof(box.Tasks));
+                this.box = box;
             }
             public void Execute()
             {
@@ -89,8 +94,9 @@ namespace SimplestPlanningSystem.Model
             private SPSBox box;
             public ChangeSPSTaskDueDate (SPSBox box)
             {
-                this.box = box ?? throw new ArgumentNullException(paramName: nameof(box));
-                if (this.box.Tasks == null) throw new ArgumentNullException(paramName: nameof(this.box.Tasks));
+                if(box==null)throw new ArgumentNullException(paramName: nameof(box));
+                if (box.Tasks == null) throw new ArgumentNullException(paramName: nameof(box.Tasks));
+                this.box = box;
             }
             public void Execute()
             {
@@ -103,8 +109,9 @@ namespace SimplestPlanningSystem.Model
             private SPSBox box;
             public UpdateListTasks(SPSBox box)
             {
-                this.box = box ?? throw new ArgumentNullException(paramName: nameof(box));
-                if (this.box.Tasks == null) throw new ArgumentNullException(paramName: nameof(this.box.Tasks));
+                if(box==null)throw new ArgumentNullException(paramName: nameof(box));
+                if (box.Tasks == null) throw new ArgumentNullException(paramName: nameof(box.Tasks));
+                this.box = box;
             }
             public void Execute()
             {
@@ -127,8 +134,9 @@ namespace SimplestPlanningSystem.Model
             private SPSBox box;
             public ChangeSPSTaskTag(SPSBox box)
             {
-                this.box = box ?? throw new ArgumentNullException(paramName: nameof(box));
-                if (this.box.Tasks == null) throw new ArgumentNullException(paramName: nameof(this.box.Tasks));
+                if(box==null)throw new ArgumentNullException(paramName: nameof(box));
+                if (box.Tasks == null) throw new ArgumentNullException(paramName: nameof(box.Tasks));
+                this.box = box;
             }
             public void Execute()
             {
@@ -141,8 +149,9 @@ namespace SimplestPlanningSystem.Model
             private SPSBox box;
             public ChangeSPSTaskInfo(SPSBox box)
             {
-                this.box = box ?? throw new ArgumentNullException(paramName: nameof(box));
-                if (this.box.Tasks == null) throw new ArgumentNullException(paramName: nameof(this.box.Tasks));
+                if(box==null)throw new ArgumentNullException(paramName: nameof(box));
+                if (box.Tasks == null) throw new ArgumentNullException(paramName: nameof(box.Tasks));
+                this.box = box;
             }
             public void Execute()
             {

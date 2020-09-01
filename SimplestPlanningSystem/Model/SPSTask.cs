@@ -54,8 +54,8 @@ namespace SimplestPlanningSystem.Model
             DateTime DateTimeEndTask
             )
         {
-            if (DateTimeStartTask < DateTimeEndTask)
-                throw new Exception($"DateTimeEndTask more then DateTimeStartTask");
+            if (DateTimeStartTask > DateTimeEndTask)
+                throw new Exception($"DateTimeStartTask more then DateTimeEndTask");
             _status = status;
             this.PriorityTask = PriorityTask;
             this.TagTask = TagTask;

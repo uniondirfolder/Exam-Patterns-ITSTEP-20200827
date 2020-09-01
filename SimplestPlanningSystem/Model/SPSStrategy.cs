@@ -17,100 +17,100 @@ namespace SimplestPlanningSystem.Model
     {
         public override void Search(SPSBox box)
         {
-            var msg = box ?? throw new ArgumentNullException(paramName: nameof(box));
-            var list = box.ListStrings ?? throw new ArgumentNullException(paramName: nameof(box.ListStrings));
-            var db = box.Tasks ?? throw new ArgumentNullException(paramName: nameof(box.Tasks));
+            if(box==null) throw new ArgumentNullException(paramName: nameof(box));
+            if( box.ListStrings ==null) throw new ArgumentNullException(paramName: nameof(box.ListStrings));
+            if(box.Tasks==null) throw new ArgumentNullException(paramName: nameof(box.Tasks));
 
-            if (msg.Search == SPSSearchBy.Date) {
-                foreach (var item in db)
+            if (box.Search == SPSSearchBy.Date) {
+                foreach (var item in box.Tasks)
                 {
                     if (item.DateTimeStartTask == box.DateTime)
-                    { list.Add(item.ToString()); }
+                    { box.ListStrings.Add(item.ToString()); }
                 }
             }
 
-            if (list.Count == 0) { list.Add("No search result..."); }
+            if (box.ListStrings.Count == 0) { box.ListStrings.Add("No search result..."); }
         }
     }
     class SPSSearchByTag: SPSStrategySearch
     {
         public override void Search(SPSBox box)
         {
-            var msg = box ?? throw new ArgumentNullException(paramName: nameof(box));
-            var list = box.ListStrings ?? throw new ArgumentNullException(paramName: nameof(box.ListStrings));
-            var db = box.Tasks ?? throw new ArgumentNullException(paramName: nameof(box.Tasks));
+            if(box==null) throw new ArgumentNullException(paramName: nameof(box));
+            if( box.ListStrings ==null) throw new ArgumentNullException(paramName: nameof(box.ListStrings));
+            if(box.Tasks==null) throw new ArgumentNullException(paramName: nameof(box.Tasks));
 
-            if (msg.Search == SPSSearchBy.Tag)
+            if (box.Search == SPSSearchBy.Tag)
             {
-                foreach (var item in db)
+                foreach (var item in box.Tasks)
                 {
-                    if (item.TagTask == msg.SPSTask.TagTask)
-                    { list.Add(item.ToString()); }
+                    if (item.TagTask == box.SPSTask.TagTask)
+                    { box.ListStrings.Add(item.ToString()); }
                 }
             }
 
-            if (list.Count == 0) { list.Add("No search result..."); }
+            if (box.ListStrings.Count == 0) { box.ListStrings.Add("No search result..."); }
         }
     }
     class SPSSearchByPriority : SPSStrategySearch
     {
         public override void Search(SPSBox box)
         {
-            var msg = box ?? throw new ArgumentNullException(paramName: nameof(box));
-            var list = box.ListStrings ?? throw new ArgumentNullException(paramName: nameof(box.ListStrings));
-            var db = box.Tasks ?? throw new ArgumentNullException(paramName: nameof(box.Tasks));
+            if(box==null) throw new ArgumentNullException(paramName: nameof(box));
+            if( box.ListStrings ==null) throw new ArgumentNullException(paramName: nameof(box.ListStrings));
+            if(box.Tasks==null) throw new ArgumentNullException(paramName: nameof(box.Tasks));
 
-            if (msg.Search == SPSSearchBy.Priority)
+            if (box.Search == SPSSearchBy.Priority)
             {
-                foreach (var item in db)
+                foreach (var item in box.Tasks)
                 {
-                    if (item.PriorityTask == msg.SPSTask.PriorityTask)
-                    { list.Add(item.ToString()); }
+                    if (item.PriorityTask == box.SPSTask.PriorityTask)
+                    { box.ListStrings.Add(item.ToString()); }
                 }
             }
 
-            if (list.Count == 0) { list.Add("No search result..."); }
+            if (box.ListStrings.Count == 0) { box.ListStrings.Add("No search result..."); }
         }
     }
     class SPSSearchByStatus : SPSStrategySearch
     {
         public override void Search(SPSBox box)
         {
-            var msg = box ?? throw new ArgumentNullException(paramName: nameof(box));
-            var list = box.ListStrings ?? throw new ArgumentNullException(paramName: nameof(box.ListStrings));
-            var db = box.Tasks ?? throw new ArgumentNullException(paramName: nameof(box.Tasks));
+            if(box==null) throw new ArgumentNullException(paramName: nameof(box));
+            if( box.ListStrings ==null) throw new ArgumentNullException(paramName: nameof(box.ListStrings));
+            if(box.Tasks==null) throw new ArgumentNullException(paramName: nameof(box.Tasks));
 
-            if (msg.Search == SPSSearchBy.Status)
+            if (box.Search == SPSSearchBy.Status)
             {
-                foreach (var item in db)
+                foreach (var item in box.Tasks)
                 {
-                    if (item.StatusTask == msg.SPSTask.StatusTask)
-                    { list.Add(item.ToString()); }
+                    if (item.StatusTask == box.SPSTask.StatusTask)
+                    { box.ListStrings.Add(item.ToString()); }
                 }
             }
 
-            if (list.Count == 0) { list.Add("No search result..."); }
+            if (box.ListStrings.Count == 0) { box.ListStrings.Add("No search result..."); }
         }
     }
     class SPSSearchByInfo : SPSStrategySearch
     {
         public override void Search(SPSBox box)
         {
-            var msg = box ?? throw new ArgumentNullException(paramName: nameof(box));
-            var list = box.ListStrings ?? throw new ArgumentNullException(paramName: nameof(box.ListStrings));
-            var db = box.Tasks ?? throw new ArgumentNullException(paramName: nameof(box.Tasks));
+            if(box==null) throw new ArgumentNullException(paramName: nameof(box));
+            if( box.ListStrings ==null) throw new ArgumentNullException(paramName: nameof(box.ListStrings));
+            if(box.Tasks==null) throw new ArgumentNullException(paramName: nameof(box.Tasks));
 
-            if (msg.Search == SPSSearchBy.Info)
+            if (box.Search == SPSSearchBy.Info)
             {
-                foreach (var item in db)
+                foreach (var item in box.Tasks)
                 {
-                    if (string.Compare(item.InfoAboutTask,msg.SPSTask.InfoAboutTask) == 0 
-                        || item.InfoAboutTask.Contains(msg.SPSTask.InfoAboutTask))
-                    { list.Add(item.ToString()); }
+                    if (string.Compare(item.InfoAboutTask,box.SPSTask.InfoAboutTask) == 0 
+                        || item.InfoAboutTask.Contains(box.SPSTask.InfoAboutTask))
+                    { box.ListStrings.Add(item.ToString()); }
                 }
             }
 
-            if (list.Count == 0) { list.Add("No search result..."); }
+            if (box.ListStrings.Count == 0) { box.ListStrings.Add("No search result..."); }
         }
     }
     public abstract class SPSStrategyChange
@@ -122,15 +122,15 @@ namespace SimplestPlanningSystem.Model
     {
         public override void Change(SPSBox box)
         {
-            var msg = box ?? throw new ArgumentNullException(paramName: nameof(box));
-            var db = box.Tasks ?? throw new ArgumentNullException(paramName: nameof(box.Tasks));
+            if(box==null) throw new ArgumentNullException(paramName: nameof(box));
+            if(box.Tasks==null) throw new ArgumentNullException(paramName: nameof(box.Tasks));
 
-            if (msg.Change == SPSChange.Priority)
+            if (box.Change == SPSChange.Priority)
             {
-                for (int i = 0; i < db.Count; i++)
+                for (int i = 0; i < box.Tasks.Count; i++)
                 {
-                    if (db[i].Id == box.SPSTask.Id)
-                    { db[i].PriorityTask = box.SPSTask.PriorityTask; break; }
+                    if (box.Tasks[i].Id == box.SPSTask.Id)
+                    { box.Tasks[i].PriorityTask = box.SPSTask.PriorityTask; break; }
                 }
             }
         }
@@ -139,15 +139,16 @@ namespace SimplestPlanningSystem.Model
     {
         public override void Change(SPSBox box)
         {
-            var msg = box ?? throw new ArgumentNullException(paramName: nameof(box));
-            var db = box.Tasks ?? throw new ArgumentNullException(paramName: nameof(box.Tasks));
+            //if(box==null)
+            if(box==null) throw new ArgumentNullException(paramName: nameof(box));
+            if(box.Tasks==null) throw new ArgumentNullException(paramName: nameof(box.Tasks));
 
-            if (msg.Change == SPSChange.DateEnd)
+            if (box.Change == SPSChange.DateEnd)
             {
-                for (int i = 0; i < db.Count; i++)
+                for (int i = 0; i < box.Tasks.Count; i++)
                 {
-                    if (db[i].Id == box.SPSTask.Id)
-                    { db[i].DateTimeEndTask = box.SPSTask.DateTimeEndTask; break; }
+                    if (box.Tasks[i].Id == box.SPSTask.Id)
+                    { box.Tasks[i].DateTimeEndTask = box.SPSTask.DateTimeEndTask; break; }
                 }
             }
         }
@@ -156,15 +157,15 @@ namespace SimplestPlanningSystem.Model
     {
         public override void Change(SPSBox box)
         {
-            var msg = box ?? throw new ArgumentNullException(paramName: nameof(box));
-            var db = box.Tasks ?? throw new ArgumentNullException(paramName: nameof(box.Tasks));
+            if(box==null) throw new ArgumentNullException(paramName: nameof(box));
+            if(box.Tasks==null) throw new ArgumentNullException(paramName: nameof(box.Tasks));
 
-            if (msg.Change == SPSChange.Tag)
+            if (box.Change == SPSChange.Tag)
             {
-                for (int i = 0; i < db.Count; i++)
+                for (int i = 0; i < box.Tasks.Count; i++)
                 {
-                    if (db[i].Id == box.SPSTask.Id)
-                    { db[i].TagTask = box.SPSTask.TagTask; break; }
+                    if (box.Tasks[i].Id == box.SPSTask.Id)
+                    { box.Tasks[i].TagTask = box.SPSTask.TagTask; break; }
                 }
             }
         }
@@ -173,15 +174,15 @@ namespace SimplestPlanningSystem.Model
     {
         public override void Change(SPSBox box)
         {
-            var msg = box ?? throw new ArgumentNullException(paramName: nameof(box));
-            var db = box.Tasks ?? throw new ArgumentNullException(paramName: nameof(box.Tasks));
+            if(box==null) throw new ArgumentNullException(paramName: nameof(box));
+            if(box.Tasks==null) throw new ArgumentNullException(paramName: nameof(box.Tasks));
 
-            if (msg.Change == SPSChange.Info)
+            if (box.Change == SPSChange.Info)
             {
-                for (int i = 0; i < db.Count; i++)
+                for (int i = 0; i < box.Tasks.Count; i++)
                 {
-                    if (db[i].Id == box.SPSTask.Id)
-                    { db[i].InfoAboutTask = box.SPSTask.InfoAboutTask; break; }
+                    if (box.Tasks[i].Id == box.SPSTask.Id)
+                    { box.Tasks[i].InfoAboutTask = box.SPSTask.InfoAboutTask; break; }
                 }
             }
         }
