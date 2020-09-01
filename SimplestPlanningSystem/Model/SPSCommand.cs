@@ -38,7 +38,7 @@ namespace SimplestPlanningSystem.Model
             {
                 if(box==null)throw new ArgumentNullException(paramName: nameof(box));
                 if (box.Tasks == null) throw new ArgumentNullException(paramName: nameof(box.Tasks));
-                if (this.box.SPSTask == null) throw new ArgumentNullException(paramName: nameof(this.box.SPSTask));
+                if (box.SPSTask == null) throw new ArgumentNullException(paramName: nameof(box.SPSTask));
                 this.box = box;
             }
             public void Execute()

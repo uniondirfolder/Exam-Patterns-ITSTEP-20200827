@@ -46,6 +46,7 @@ namespace SimplestPlanningSystem
         {
             var frm = new FormNewTask(Dispatcher, listView);
             frm.Show();
+            
         }
 
         private void btnSetDateDue_Click(object sender, EventArgs e)
@@ -55,6 +56,7 @@ namespace SimplestPlanningSystem
                 var index = listView.Items.IndexOf(listView.SelectedItems[0]);
                 var frm = new FormNewTask(Dispatcher, listView, SPSChange.DateEnd, index);
                 frm.Show();
+                
             }
         }
 
@@ -79,6 +81,7 @@ namespace SimplestPlanningSystem
                 var index= listView.Items.IndexOf(listView.SelectedItems[0]);
                 var frm = new FormNewTask(Dispatcher, listView,SPSChange.Task,index);
                 frm.Show();
+                
             }
         }
 
@@ -89,6 +92,7 @@ namespace SimplestPlanningSystem
                 var index = listView.Items.IndexOf(listView.SelectedItems[0]);
                 var frm = new FormNewTask(Dispatcher, listView, SPSChange.Tag, index);
                 frm.Show();
+                
             }
         }
 

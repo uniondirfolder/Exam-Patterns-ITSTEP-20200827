@@ -81,6 +81,9 @@
     <EmbeddedResource Include="UserInterface\FormNewTask.resx">
       <DependentUpon>FormNewTask.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserInterface\FormSearch.resx">
+      <DependentUpon>FormSearch.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserInterface\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
