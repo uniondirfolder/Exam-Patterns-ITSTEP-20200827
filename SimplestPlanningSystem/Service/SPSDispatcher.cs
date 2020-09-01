@@ -13,6 +13,15 @@ namespace SimplestPlanningSystem.Service
     {
         private SPSFacade controller;
         private SPSView view;
+
+        public void SetController(SPSFacade controller) 
+        {
+            this.controller = controller;
+        }
+        public void SetView(SPSView view)
+        {
+            this.view = view;
+        }
         public void SendServiceCode(SPSServiceCode code, SPSmvc smvc, SPSBox box)
         {
             if (smvc is SPSFacade)
@@ -24,10 +33,8 @@ namespace SimplestPlanningSystem.Service
                 controller.Activity(code,box);
             }
         }
-        public SPSDispatcher(SPSFacade controller, SPSView view)
+        public SPSDispatcher()
         {
-            this.controller = controller ?? throw new ArgumentNullException(paramName: nameof(controller));
-            this.view = view ?? throw new ArgumentNullException(paramName: nameof(view));
         }
     }
 }
