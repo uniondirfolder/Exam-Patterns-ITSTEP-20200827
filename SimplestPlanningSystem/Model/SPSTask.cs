@@ -22,7 +22,7 @@ namespace SimplestPlanningSystem.Model
     }
     public enum SPSSearchBy 
     {
-        Status, Priority, Tag, Info, Date
+        Status, Priority, Tag, Info, DueDate
     }
     public enum SPSChange
     {

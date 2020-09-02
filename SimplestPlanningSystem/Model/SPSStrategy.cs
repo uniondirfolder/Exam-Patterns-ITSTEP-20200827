@@ -13,23 +13,23 @@ namespace SimplestPlanningSystem.Model
     {
         public abstract void Search(SPSBox box);
     }
-    class SPSSearchByDateStart: SPSStrategySearch
+    class SPSSearchByDateDue: SPSStrategySearch
     {
         public override void Search(SPSBox box)
         {
             if(box==null) throw new ArgumentNullException(paramName: nameof(box));
-            if( box.ListStrings ==null) throw new ArgumentNullException(paramName: nameof(box.ListStrings));
+            if( box.ListView==null) throw new ArgumentNullException(paramName: nameof(box.ListStrings));
             if(box.Tasks==null) throw new ArgumentNullException(paramName: nameof(box.Tasks));
 
-            if (box.Search == SPSSearchBy.Date) {
+            if (box.Search == SPSSearchBy.DueDate) {
                 foreach (var item in box.Tasks)
                 {
                     if (item.DateTimeStartTask == box.DateTime)
-                    { box.ListStrings.Add(item.ToString()); }
+                    { box.ListView.Items.Add(item.ToString()); }
                 }
             }
 
-            if (box.ListStrings.Count == 0) { box.ListStrings.Add("No search result..."); }
+            if (box.ListView.Items.Count == 0) { box.ListView.Items.Add("No search result..."); }
         }
     }
     class SPSSearchByTag: SPSStrategySearch
@@ -37,7 +37,7 @@ namespace SimplestPlanningSystem.Model
         public override void Search(SPSBox box)
         {
             if(box==null) throw new ArgumentNullException(paramName: nameof(box));
-            if( box.ListStrings ==null) throw new ArgumentNullException(paramName: nameof(box.ListStrings));
+            if( box.ListView==null) throw new ArgumentNullException(paramName: nameof(box.ListStrings));
             if(box.Tasks==null) throw new ArgumentNullException(paramName: nameof(box.Tasks));
 
             if (box.Search == SPSSearchBy.Tag)
@@ -45,11 +45,11 @@ namespace SimplestPlanningSystem.Model
                 foreach (var item in box.Tasks)
                 {
                     if (item.TagTask == box.SPSTask.TagTask)
-                    { box.ListStrings.Add(item.ToString()); }
+                    { box.ListView.Items.Add(item.ToString()); }
                 }
             }
 
-            if (box.ListStrings.Count == 0) { box.ListStrings.Add("No search result..."); }
+            if (box.ListView.Items.Count == 0) { box.ListView.Items.Add("No search result..."); }
         }
     }
     class SPSSearchByPriority : SPSStrategySearch
@@ -57,7 +57,7 @@ namespace SimplestPlanningSystem.Model
         public override void Search(SPSBox box)
         {
             if(box==null) throw new ArgumentNullException(paramName: nameof(box));
-            if( box.ListStrings ==null) throw new ArgumentNullException(paramName: nameof(box.ListStrings));
+            if( box.ListView==null) throw new ArgumentNullException(paramName: nameof(box.ListStrings));
             if(box.Tasks==null) throw new ArgumentNullException(paramName: nameof(box.Tasks));
 
             if (box.Search == SPSSearchBy.Priority)
@@ -65,11 +65,11 @@ namespace SimplestPlanningSystem.Model
                 foreach (var item in box.Tasks)
                 {
                     if (item.PriorityTask == box.SPSTask.PriorityTask)
-                    { box.ListStrings.Add(item.ToString()); }
+                    { box.ListView.Items.Add(item.ToString()); }
                 }
             }
 
-            if (box.ListStrings.Count == 0) { box.ListStrings.Add("No search result..."); }
+            if (box.ListView.Items.Count == 0) { box.ListView.Items.Add("No search result..."); }
         }
     }
     class SPSSearchByStatus : SPSStrategySearch
@@ -77,7 +77,7 @@ namespace SimplestPlanningSystem.Model
         public override void Search(SPSBox box)
         {
             if(box==null) throw new ArgumentNullException(paramName: nameof(box));
-            if( box.ListStrings ==null) throw new ArgumentNullException(paramName: nameof(box.ListStrings));
+            if( box.ListView==null) throw new ArgumentNullException(paramName: nameof(box.ListStrings));
             if(box.Tasks==null) throw new ArgumentNullException(paramName: nameof(box.Tasks));
 
             if (box.Search == SPSSearchBy.Status)
@@ -85,11 +85,11 @@ namespace SimplestPlanningSystem.Model
                 foreach (var item in box.Tasks)
                 {
                     if (item.StatusTask == box.SPSTask.StatusTask)
-                    { box.ListStrings.Add(item.ToString()); }
+                    { box.ListView.Items.Add(item.ToString()); }
                 }
             }
 
-            if (box.ListStrings.Count == 0) { box.ListStrings.Add("No search result..."); }
+            if (box.ListView.Items.Count == 0) { box.ListView.Items.Add("No search result..."); }
         }
     }
     class SPSSearchByInfo : SPSStrategySearch
@@ -97,7 +97,7 @@ namespace SimplestPlanningSystem.Model
         public override void Search(SPSBox box)
         {
             if(box==null) throw new ArgumentNullException(paramName: nameof(box));
-            if( box.ListStrings ==null) throw new ArgumentNullException(paramName: nameof(box.ListStrings));
+            if( box.ListView==null) throw new ArgumentNullException(paramName: nameof(box.ListStrings));
             if(box.Tasks==null) throw new ArgumentNullException(paramName: nameof(box.Tasks));
 
             if (box.Search == SPSSearchBy.Info)
@@ -106,11 +106,11 @@ namespace SimplestPlanningSystem.Model
                 {
                     if (string.Compare(item.InfoAboutTask,box.SPSTask.InfoAboutTask) == 0 
                         || item.InfoAboutTask.Contains(box.SPSTask.InfoAboutTask))
-                    { box.ListStrings.Add(item.ToString()); }
+                    { box.ListView.Items.Add(item.ToString()); }
                 }
             }
 
-            if (box.ListStrings.Count == 0) { box.ListStrings.Add("No search result..."); }
+            if (box.ListView.Items.Count == 0) { box.ListView.Items.Add("No search result..."); }
         }
     }
     public abstract class SPSStrategyChange

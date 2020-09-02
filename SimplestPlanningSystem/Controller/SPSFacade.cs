@@ -73,7 +73,36 @@ namespace SimplestPlanningSystem.Controller
         private void Fill(SPSBox box) 
         {
             box.SPSTask = box.GetCopyByIndex(box.index);
-        } 
+        }
+        private void Search(SPSBox box) 
+        {
+            switch (box.Search)
+            {
+                case SPSSearchBy.Status:
+                    var s = new SPSSearchByDateDue();
+                    s.Search(box);
+                    break;
+                case SPSSearchBy.Priority:
+                    var p = new SPSSearchByPriority();
+                    p.Search(box);
+                    break;
+                case SPSSearchBy.Tag:
+                    var t = new SPSSearchByTag();
+                    t.Search(box);
+                    break;
+                case SPSSearchBy.Info:
+                    var i = new SPSSearchByInfo();
+                    i.Search(box);
+                    break;
+                case SPSSearchBy.DueDate:
+                    var d = new SPSSearchByDateDue();
+                    d.Search(box);
+                    break;
+                default:
+                    break;
+            }
+            
+        }
         public override void Activity(SPSServiceCode code, SPSBox box )
         {
             if(box == null) throw new ArgumentNullException(paramName: nameof(box));
@@ -109,6 +138,9 @@ namespace SimplestPlanningSystem.Controller
                     break;
                 case SPSServiceCode.SetInfo:
                     SetInfo(box); db.Write();
+                    break;
+                case SPSServiceCode.Search:
+                    Search(box);
                     break;
                 default:
                     break;

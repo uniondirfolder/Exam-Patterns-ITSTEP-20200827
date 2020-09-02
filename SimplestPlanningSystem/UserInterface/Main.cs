@@ -143,7 +143,8 @@ namespace SimplestPlanningSystem
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-
+            var frm = new FormSearch(Dispatcher);
+            frm.Show();
         }
 
         private void Main_FormClosing(object sender, FormClosingEventArgs e)

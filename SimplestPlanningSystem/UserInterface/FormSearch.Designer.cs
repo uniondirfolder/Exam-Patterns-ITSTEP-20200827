@@ -36,7 +36,7 @@
             this.cmbTag = new System.Windows.Forms.ComboBox();
             this.cmbPriority = new System.Windows.Forms.ComboBox();
             this.dateTimePickerDueDate = new System.Windows.Forms.DateTimePicker();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbxStr = new System.Windows.Forms.TextBox();
             this.listView = new System.Windows.Forms.ListView();
             this.btnSearch = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
@@ -45,7 +45,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnSearch);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.tbxStr);
             this.groupBox1.Controls.Add(this.dateTimePickerDueDate);
             this.groupBox1.Controls.Add(this.cmbPriority);
             this.groupBox1.Controls.Add(this.cmbTag);
@@ -127,13 +127,13 @@
             this.dateTimePickerDueDate.Size = new System.Drawing.Size(138, 20);
             this.dateTimePickerDueDate.TabIndex = 6;
             // 
-            // textBox1
+            // tbxStr
             // 
-            this.textBox1.Location = new System.Drawing.Point(7, 126);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(230, 20);
-            this.textBox1.TabIndex = 7;
-            this.textBox1.Text = "find information";
+            this.tbxStr.Location = new System.Drawing.Point(7, 126);
+            this.tbxStr.Name = "tbxStr";
+            this.tbxStr.Size = new System.Drawing.Size(230, 20);
+            this.tbxStr.TabIndex = 7;
+            this.tbxStr.Text = "find information";
             // 
             // listView
             // 
@@ -143,6 +143,7 @@
             this.listView.Size = new System.Drawing.Size(483, 385);
             this.listView.TabIndex = 1;
             this.listView.UseCompatibleStateImageBehavior = false;
+            this.listView.View = System.Windows.Forms.View.List;
             // 
             // btnSearch
             // 
@@ -152,6 +153,7 @@
             this.btnSearch.TabIndex = 8;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // FormSearch
             // 
@@ -172,7 +174,7 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbxStr;
         private System.Windows.Forms.DateTimePicker dateTimePickerDueDate;
         private System.Windows.Forms.ComboBox cmbPriority;
         private System.Windows.Forms.ComboBox cmbTag;

@@ -9,3 +9,4 @@ E:\(_Work-Git_)\Exam-Patterns-ITSTEP-20200827\SimplestPlanningSystem\obj\Debug\S
 E:\(_Work-Git_)\Exam-Patterns-ITSTEP-20200827\SimplestPlanningSystem\obj\Debug\SimplestPlanningSystem.csproj.CoreCompileInputs.cache
 E:\(_Work-Git_)\Exam-Patterns-ITSTEP-20200827\SimplestPlanningSystem\obj\Debug\SimplestPlanningSystem.exe
 E:\(_Work-Git_)\Exam-Patterns-ITSTEP-20200827\SimplestPlanningSystem\obj\Debug\SimplestPlanningSystem.pdb
+E:\(_Work-Git_)\Exam-Patterns-ITSTEP-20200827\SimplestPlanningSystem\obj\Debug\SimplestPlanningSystem.UserInterface.FormSearch.resources
