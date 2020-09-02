@@ -3,10 +3,10 @@ E:\(_Work-Git_)\Exam-Patterns-ITSTEP-20200827\SimplestPlanningSystem\bin\Debug\S
 E:\(_Work-Git_)\Exam-Patterns-ITSTEP-20200827\SimplestPlanningSystem\bin\Debug\SimplestPlanningSystem.pdb
 E:\(_Work-Git_)\Exam-Patterns-ITSTEP-20200827\SimplestPlanningSystem\obj\Debug\SimplestPlanningSystem.csprojAssemblyReference.cache
 E:\(_Work-Git_)\Exam-Patterns-ITSTEP-20200827\SimplestPlanningSystem\obj\Debug\SimplestPlanningSystem.UserInterface.FormNewTask.resources
+E:\(_Work-Git_)\Exam-Patterns-ITSTEP-20200827\SimplestPlanningSystem\obj\Debug\SimplestPlanningSystem.UserInterface.FormSearch.resources
 E:\(_Work-Git_)\Exam-Patterns-ITSTEP-20200827\SimplestPlanningSystem\obj\Debug\SimplestPlanningSystem.Main.resources
 E:\(_Work-Git_)\Exam-Patterns-ITSTEP-20200827\SimplestPlanningSystem\obj\Debug\SimplestPlanningSystem.Properties.Resources.resources
 E:\(_Work-Git_)\Exam-Patterns-ITSTEP-20200827\SimplestPlanningSystem\obj\Debug\SimplestPlanningSystem.csproj.GenerateResource.cache
 E:\(_Work-Git_)\Exam-Patterns-ITSTEP-20200827\SimplestPlanningSystem\obj\Debug\SimplestPlanningSystem.csproj.CoreCompileInputs.cache
 E:\(_Work-Git_)\Exam-Patterns-ITSTEP-20200827\SimplestPlanningSystem\obj\Debug\SimplestPlanningSystem.exe
 E:\(_Work-Git_)\Exam-Patterns-ITSTEP-20200827\SimplestPlanningSystem\obj\Debug\SimplestPlanningSystem.pdb
-E:\(_Work-Git_)\Exam-Patterns-ITSTEP-20200827\SimplestPlanningSystem\obj\Debug\SimplestPlanningSystem.UserInterface.FormSearch.resources
